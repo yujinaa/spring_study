@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 객체 만들기 -->
+	<bean id="st01" class="com.care.root02.Student" />
+	<bean id="stb" class="com.care.root02.STBean">
+		<property name="st" ref="st01"/>
+		
+		<!-- <property><value> : 변수세팅공간으로 세터가 있어야지만 가능 -->
+		
+		<!-- MainClass에서 
+			//stBean.setName("홍길동11");
+			//stBean.setAge(201343);     주석처리후 이곳에서 작성--> 
+		<property name="name">    <!-- property와 value는 나눠서 작성 가능 -->
+			<value>홍길동입니다</value>
+		</property>
+		<property name="age" value="12"/>  <!-- 한번에 작성 가능 -->
+		
+	</bean>
+	
+	<!-- 자바에선 이코드와 같다
+	<bean id="st01" class="com.care.root02.Student" /> ==> Student st01 = new Student();	
+	<bean id="stb" class="com.care.root02.STBean">     ==> STBean stBean = new STBean();
+	<property name="st" ref="st01"/>                   ==> stBean.setSt(st01);
+	 -->
+</beans>
