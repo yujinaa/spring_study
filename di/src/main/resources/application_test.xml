@@ -3,11 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
+	<!-- 이런 방식은 이미 만들어져있는 것들을 결합할 때 사용한다 -->
 	<bean id = "printS" class="com.care.di_test.PrintString"/>
 	<bean id = "printB" class="com.care.di_test.PrintBean">
 		<property name="ps" ref="printS"/>
 		<property name="print" value="테스트출력입니다"/>
 	</bean>
-
-
 </beans>
