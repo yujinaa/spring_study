@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+<!-- 경로를 잡아주면 ${print.name} 이 값을 읽는다 -->
+<context:property-placeholder location="classpath:print.properties"/>
 
 	<!-- 객체 만들기 -->
 	<bean id="st01" class="com.care.root02.Student" />
@@ -14,7 +19,7 @@
 			//stBean.setName("홍길동11");
 			//stBean.setAge(201343);     주석처리후 이곳에서 작성--> 
 		<property name="name">    <!-- property와 value는 나눠서 작성 가능 -->
-			<value>홍길동입니다</value>
+			<value>${print.name}</value><!-- 해당값 변경시 분리해서 직접 변경하지 않아도 된다 -->
 		</property>
 		<property name="age" value="12"/>  <!-- 한번에 작성 가능 -->
 		
