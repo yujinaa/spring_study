@@ -8,6 +8,5 @@
 </head>
 <body>index.jsp
 	<h1>기본 페이지</h1>
-
 </body>
 </html>
