@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/applicationST.xml</config>
 		<config>src/main/resources/application_test.xml</config>
+		<config>src/main/resources/application_test02.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
