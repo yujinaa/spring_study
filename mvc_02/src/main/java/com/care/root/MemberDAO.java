@@ -3,7 +3,7 @@ package com.care.root;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-@Repository
+@Repository //보통 dao에 적용해 사용
 public class MemberDAO {
 	public MemberDAO() {
 		System.out.println("DAO 생성자 실행");
