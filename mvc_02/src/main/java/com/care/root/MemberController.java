@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 	//@Autowired //빈 자동주입(자료형보고 빈주입)
 	@Inject //autowired 둘 중 아무거나 써도 괜찮다
-	@Qualifier("memberService")//빈여러개가 있을 떄 여러개 중 mmm을 넣어주겠다
+	@Qualifier("mmm")//빈여러개가 있을 떄 여러개 중 mmm을 넣어주겠다
 	MemberService ms; //controller는 service로 연결
 
 	@RequestMapping("insert") //데이터를 추가한다는 가정

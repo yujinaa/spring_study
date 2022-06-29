@@ -1,6 +1,9 @@
 package com.care.get_post;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +24,18 @@ public class MyController {
 	
 	//get방식
 	@GetMapping("my/result")    //@RequestMapping(value = "my/index", method = RequestMethod.GET)와 같다
-	public String result_get() {
+	public String result_get(HttpServletRequest request, Model model) {//사용자 입력값은 전부 request객체에 저장
+		String name = request.getParameter("name");
+		String age = request.getParameter("age");
+		
 		System.out.println("get방식으로 들어왔습니다");
+		System.out.println("name : " + name );
+		System.out.println("age  : " + age );
+		
+		model.addAttribute("method", request.getMethod()); //method방식 알려준다
+		model.addAttribute("name", name);
+		model.addAttribute("age", age);
+		
 		return "/get_post/result";
 	}
 	
