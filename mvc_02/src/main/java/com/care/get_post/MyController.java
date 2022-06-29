@@ -25,7 +25,7 @@ public class MyController {
 	//get방식
 	@GetMapping("my/result")    //@RequestMapping(value = "my/index", method = RequestMethod.GET)와 같다
 	public String result_get(HttpServletRequest request, Model model) {//사용자 입력값은 전부 request객체에 저장
-		String name = request.getParameter("name");
+		String name = request.getParameter("name");//데이터를 꺼내올때 사용
 		String age = request.getParameter("age");
 		
 		System.out.println("get방식으로 들어왔습니다");
