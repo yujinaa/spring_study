@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MyController {
@@ -42,8 +43,15 @@ public class MyController {
 	//post방식
 	//@PostMapping("my/result")
 	@RequestMapping(value = "my/result", method = RequestMethod.POST)//post방식으로 오는 것만 받겠다
-	public String result_post() {
+	public String result_post(HttpServletRequest request, Model model, 
+								@RequestParam("name") String name,
+								@RequestParam("age") String age) {//사용자 요청값 받아준다. request.getParameter과 같다고 보면된다
 		System.out.println("post방식으로 들어왔습니다");
+		
+		model.addAttribute("method", request.getMethod()); //method방식 알려준다
+		model.addAttribute("name", name);
+		model.addAttribute("age", age);
+		
 		return "/get_post/result";
 	}
 }
