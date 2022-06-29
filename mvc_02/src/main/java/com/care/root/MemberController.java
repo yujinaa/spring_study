@@ -1,5 +1,7 @@
 package com.care.root;
 
+import javax.inject.Inject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -8,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller      //연결 기능만 한다
 public class MemberController {
-	@Autowired //빈 자동주입(자료형보고 빈주입)
-	@Qualifier("mmm")//빈여러개가 있을 떄 여러개 중 mmm을 넣어주겠다
+	//@Autowired //빈 자동주입(자료형보고 빈주입)
+	@Inject //autowired 둘 중 아무거나 써도 괜찮다
+	@Qualifier("memberService")//빈여러개가 있을 떄 여러개 중 mmm을 넣어주겠다
 	MemberService ms; //controller는 service로 연결
 
 	@RequestMapping("insert") //데이터를 추가한다는 가정

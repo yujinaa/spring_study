@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 //service : 연산 기능 담당 
-@Service("mmm")
+@Service("memberService")
 public class MemberService { 
 	@Autowired //빈 자동주입
 	MemberDAO dao;//service는 DAO를 호출한다
