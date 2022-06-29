@@ -44,7 +44,7 @@ public class MyController {
 	//@PostMapping("my/result")
 	@RequestMapping(value = "my/result", method = RequestMethod.POST)//post방식으로 오는 것만 받겠다
 	public String result_post(HttpServletRequest request, Model model, 
-								@RequestParam("name") String name,
+								@RequestParam("name") String name,//@RequestParam로 가져온 값을 name변수에 저장
 								@RequestParam("age") String age) {//사용자 요청값 받아준다. request.getParameter과 같다고 보면된다
 		System.out.println("post방식으로 들어왔습니다");
 		
