@@ -22,6 +22,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.care.root" />
+	<context:component-scan base-package="com.care.get_post" />
 	<beans:bean id = "memberS" class="com.care.root.MemberService"/>
 	
 	
