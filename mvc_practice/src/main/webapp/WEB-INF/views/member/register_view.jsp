@@ -9,8 +9,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-index페이지<br>
-<a href="${contextPath }/member/register_view">회원가입</a>
-<a href="${contextPath }/member/member_list">모든회원보기</a>
+register_view<br>
+<h1>회원가입 페이지</h1>
+<form action="${pageContext }/member/register" method="post">
+<input type="text" name = "id" placeholder="input id"><br>
+<input type="password" name = "pwd" placeholder="input pwd"><br>
+<input type="text" name = "name" placeholder="input name"><br>
+<input type="submit" value="가입">
 </body>
 </html>

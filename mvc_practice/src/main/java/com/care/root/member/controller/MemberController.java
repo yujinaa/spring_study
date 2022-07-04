@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.care.root.member.service.MemberService;
 
 @Controller
+@RequestMapping("member")//공통적으로 쓰는 경로를 쓰면 번거로움이 줄일수 있음
 public class MemberController {
 	@Autowired 	MemberService ms;
 	public MemberController() {
@@ -18,17 +19,17 @@ public class MemberController {
 		System.out.println("ms :" + ms);
 		ms.test();
 	}
-	@GetMapping("member/index")//경로명(url)
+	@GetMapping("/index")//경로명(url)
 	public String memberIndex() {
-		return "member/index";//패키지명(views)
+		return "/member/index";//패키지명(views)
 	}
-	@GetMapping("/member/register_view")//<a>태그는 get방식
+	@GetMapping("/register_view")//<a>태그는 get방식
 	public String registerView() {
-		return "member/register_view";
+		return "/member/register_view";
 	}
-	@GetMapping("/member/member_list")//<a>태그는 get방식
+	@GetMapping("/member_list")//requestMapping으로 member생략 가능
 	public String memberList() {
-		return "member/member_list";
+		return "/member/member_list";
 	}
 
 }
