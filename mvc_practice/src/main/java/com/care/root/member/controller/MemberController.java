@@ -37,9 +37,12 @@ public class MemberController {
 	public String register(@RequestParam("id") String id,
 							@RequestParam String pwd,
 							@RequestParam String name){//회원가입시 id,pwd,name저장
-		System.out.println(id);
+		System.out.println(id);//값 넘어갔는지 테스트
 		System.out.println(pwd);
 		System.out.println(name);
+		
+		ms.register(id,pwd,name);//service가서 register작성하기
+		
 		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
 	}
 }

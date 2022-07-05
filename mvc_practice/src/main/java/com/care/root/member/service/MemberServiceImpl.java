@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.care.root.member.dao.MemberDAO;
+import com.care.root.member.dto.MemberDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService{ //상속받기
@@ -14,5 +15,14 @@ public class MemberServiceImpl implements MemberService{ //상속받기
 	public void test() {
 		System.out.println("dao : " + dao);
 	}
+	@Override
+	public void register(String id, String pwd, String name) {
+		MemberDTO dto = new MemberDTO();
+		dto.setId(id);
+		dto.setPwd(pwd);
+		dto.setName(name);
+		dao.register(dto);//dto에 저장해서 넘겨주기
+	}
+	
 
 }
