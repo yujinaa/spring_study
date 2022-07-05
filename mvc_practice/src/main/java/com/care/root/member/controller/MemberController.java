@@ -3,7 +3,9 @@ package com.care.root.member.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.care.root.member.service.MemberService;
 
@@ -31,5 +33,13 @@ public class MemberController {
 	public String memberList() {
 		return "/member/member_list";
 	}
-
+	@PostMapping("register")
+	public String register(@RequestParam("id") String id,
+							@RequestParam String pwd,
+							@RequestParam String name){//회원가입시 id,pwd,name저장
+		System.out.println(id);
+		System.out.println(pwd);
+		System.out.println(name);
+		return "member/index";
+	}
 }
