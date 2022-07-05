@@ -40,6 +40,6 @@ public class MemberController {
 		System.out.println(id);
 		System.out.println(pwd);
 		System.out.println(name);
-		return "member/index";
+		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
 	}
 }
