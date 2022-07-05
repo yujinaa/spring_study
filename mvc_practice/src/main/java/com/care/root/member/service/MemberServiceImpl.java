@@ -2,6 +2,7 @@ package com.care.root.member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.care.root.member.dao.MemberDAO;
 import com.care.root.member.dto.MemberDTO;
@@ -23,6 +24,9 @@ public class MemberServiceImpl implements MemberService{ //상속받기
 		dto.setName(name);
 		dao.register(dto);//dto에 저장해서 넘겨주기
 	}
-	
+	@Override
+	public void memberList(Model model) {
+		model.addAttribute("list",dao.memberList());//dto에 memberList()만들기
 
+	}
 }

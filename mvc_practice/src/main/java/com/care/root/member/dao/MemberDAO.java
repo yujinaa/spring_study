@@ -16,5 +16,8 @@ public class MemberDAO {
 	public void register(MemberDTO dto) {
 		list.add(dto);//dto저장
 	}
+	public ArrayList<MemberDTO> memberList(){
+		return list;
+	}
 
 }

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +34,9 @@ public class MemberController {
 		return "/member/register_view";
 	}
 	@GetMapping("/member_list")//requestMapping으로 member생략 가능
-	public String memberList() {
+	public String memberList(Model model) {
+		ms.memberList(model);//service로 model값 넘기기
+
 		return "/member/member_list";
 	}
 	@PostMapping("register")//방법1.@RequestParam
