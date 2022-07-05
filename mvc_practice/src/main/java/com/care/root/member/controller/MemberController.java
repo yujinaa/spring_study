@@ -1,5 +1,7 @@
 package com.care.root.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +35,7 @@ public class MemberController {
 	public String memberList() {
 		return "/member/member_list";
 	}
-	@PostMapping("register")
+	@PostMapping("register")//방법1.@RequestParam
 	public String register(@RequestParam("id") String id,
 							@RequestParam String pwd,
 							@RequestParam String name){//회원가입시 id,pwd,name저장
@@ -42,6 +44,18 @@ public class MemberController {
 		System.out.println(name);
 		
 		ms.register(id,pwd,name);//service가서 register작성하기
+		
+		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
+	}
+	@PostMapping("register1")//방법2.HttpServletRequest
+	public String register(HttpServletRequest req){//회원가입시 id,pwd,name저장
+		System.out.println(req.getParameter("id"));//값 넘어갔는지 테스트
+		System.out.println(req.getParameter("pwd"));
+		System.out.println(req.getParameter("name"));
+		
+		ms.register(req.getParameter("id"),
+					req.getParameter("pwd"),
+					req.getParameter("name"));
 		
 		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
 	}
