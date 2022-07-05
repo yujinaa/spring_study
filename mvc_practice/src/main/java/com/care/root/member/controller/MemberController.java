@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.care.root.member.dto.MemberDTO;
 import com.care.root.member.service.MemberService;
 
 @Controller
@@ -48,7 +49,7 @@ public class MemberController {
 		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
 	}
 	@PostMapping("register1")//방법2.HttpServletRequest
-	public String register(HttpServletRequest req){//회원가입시 id,pwd,name저장
+	public String register1(HttpServletRequest req){//회원가입시 id,pwd,name저장
 		System.out.println(req.getParameter("id"));//값 넘어갔는지 테스트
 		System.out.println(req.getParameter("pwd"));
 		System.out.println(req.getParameter("name"));
@@ -56,6 +57,16 @@ public class MemberController {
 		ms.register(req.getParameter("id"),
 					req.getParameter("pwd"),
 					req.getParameter("name"));
+		
+		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
+	}
+	@PostMapping("register2")//방법3.그냥 dto값으로 받기
+	public String register2(MemberDTO dto){
+		System.out.println(dto.getId());//값 넘어갔는지 테스트
+		System.out.println(dto.getPwd());
+		System.out.println(dto.getName());
+		
+		ms.register(dto);
 		
 		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
 	}
