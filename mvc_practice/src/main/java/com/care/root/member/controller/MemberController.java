@@ -62,11 +62,11 @@ public class MemberController {
 	}
 	@PostMapping("register2")//방법3.그냥 dto값으로 받기
 	public String register2(MemberDTO dto){
-		System.out.println(dto.getId());//값 넘어갔는지 테스트
-		System.out.println(dto.getPwd());
-		System.out.println(dto.getName());
+		System.out.println("dto.id : "+dto.getId());//값 넘어갔는지 테스트
+		System.out.println("dto.pwd : "+dto.getPwd());
+		System.out.println("dto.name : "+dto.getName());
 		
-		ms.register(dto);
+//		ms.register(dto);
 		
 		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
 	}

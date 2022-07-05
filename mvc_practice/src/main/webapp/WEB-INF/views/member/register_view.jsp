@@ -11,10 +11,11 @@
 <body>
 register_view<br>
 <h1>회원가입 페이지</h1>
-<form action="${contextPath }/member/register" method="post">
+<form action="${contextPath }/member/register2" method="post">
 <input type="text" name = "id" placeholder="input id"><br>
 <input type="password" name = "pwd" placeholder="input pwd"><br>
 <input type="text" name = "name" placeholder="input name"><br>
 <input type="submit" value="가입">
+</form>
 </body>
 </html>
