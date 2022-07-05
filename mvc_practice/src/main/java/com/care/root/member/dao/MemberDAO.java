@@ -13,5 +13,8 @@ public class MemberDAO {
 		System.out.println("dao 생성자 실행");
 		list = new ArrayList<MemberDTO>();
 	}
+	public void register(MemberDTO dto) {
+		list.add(dto);//dto저장
+	}
 
 }
