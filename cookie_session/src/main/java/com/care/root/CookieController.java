@@ -25,5 +25,4 @@ public class CookieController {
 		}
 		return "cook/cookie";
 	}
-
 }
