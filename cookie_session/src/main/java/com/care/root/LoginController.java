@@ -16,7 +16,7 @@ public class LoginController {
 	}
 	@PostMapping("chkUser")
 	public String chkUser(@RequestParam String id, @RequestParam String pwd,
-							HttpSession session) {//사용자로부터 넘어오는 값 받아서 처리
+			HttpSession session) {//사용자로부터 넘어오는 값 받아서 처리
 		String db_id = "1",db_pwd = "1", db_nick="날씨가 너무 더워";//아직 db연결을 하지않아서 가정
 		if(id.equals(db_id) && pwd.equals(db_pwd)) {
 			session.setAttribute("loginId", db_id);
