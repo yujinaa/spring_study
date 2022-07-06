@@ -28,8 +28,8 @@ public class LoginController {
 	}
 	@RequestMapping("main")
 	public String main(HttpSession session) {
-		if(session.getAttribute("loginId") != null)
+		//if(session.getAttribute("loginId") != null)
 			return "login/main"; //null이 아니면 main으로
-		return "redirect:login"; //null이면 login으로(무분별하게 페이지가 넘어가지 않도록)
+		//return "redirect:login"; //null이면 login으로(무분별하게 페이지가 넘어가지 않도록)
 	}
 }
