@@ -12,6 +12,8 @@
 <img src="resources/밀양-가을여행.jpg" width="100px" height="100px">
 <img src="${contextPath }/resources/밀양-가을여행.jpg" width="100px" height="100px"><!-- 절대경로 -->
 <img src="<c:url value='/resources/밀양-가을여행.jpg'/>" width="100px" height="100px"><!-- c:url 절대경로 -->
+<hr>
+<img src = "resources/test/sim.jpg" width="100px" height="100px"><!-- resources의 다른 폴더에 있는 사진 경로잡기 -->
 
 
 
