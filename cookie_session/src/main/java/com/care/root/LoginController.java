@@ -1,8 +1,13 @@
 package com.care.root;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,9 +32,19 @@ public class LoginController {
 		}
 	}
 	@RequestMapping("main")
-	public String main(HttpSession session) {
-		//if(session.getAttribute("loginId") != null)
-			return "login/main"; //null이 아니면 main으로
+	public void main(HttpSession session, HttpServletResponse response) {		
+		PrintWriter out = null;
+		response.setContentType("text/html; charset=utf-8");
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		if(session.getAttribute("loginId") != null) {
+			out.print("<script>alert('로그인 성공')</script>");//사용자에게 응답할 메시지
+			//return "login/main"; //null이 아니면 main으로			  
+		}
 		//return "redirect:login"; //null이면 login으로(무분별하게 페이지가 넘어가지 않도록)
 	}
 }
