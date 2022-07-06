@@ -47,8 +47,17 @@ public class LoginController {
 		return "redirect:login"; //null이면 login으로(무분별하게 페이지가 넘어가지 않도록)
 	}
 	@RequestMapping("logout")
-	public String logout(HttpSession session) {
+	public void logout(HttpSession session,HttpServletResponse response) {
 		session.invalidate();//모든 세션 완료
-		return "login/logout";
+		PrintWriter out = null;
+		response.setContentType("text/html; charset=utf-8");
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		out.print("<script>alert('로그아웃 되었습니다');"
+		          + "location.href = 'login'; </script>");
+//		return "login/logout";
 	}
 }
