@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * Handles requests for the application home page.
@@ -42,9 +43,11 @@ public class HomeController {
 		return "re/index";
 	}
 	@RequestMapping("result")
-	public String result(HttpServletRequest request) {
+	public String result(HttpServletRequest request,Model model,RedirectAttributes rs) {//redirect로 값 바로 전달시 써야한다
 		String id = request.getParameter("id");
 		if(id.equals("abc")) {//인증성공시
+			//model.addAttribute("result","로그인 성공!");//model에 값 저장
+			rs.addFlashAttribute("result","리다이렉트 값 전달");
 			return "redirect:rsOK";//인증성공시 여기로
 		}else {
 			return "redirect:rsNO";//인증실패시 여기로

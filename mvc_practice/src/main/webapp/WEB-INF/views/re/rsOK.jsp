@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1>rsOK페이지</h1>
+${result }
 
 </body>
 </html>
