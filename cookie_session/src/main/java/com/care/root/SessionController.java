@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -16,7 +17,8 @@ public class SessionController {
 		return "session/makeSession";
 	}
 	@RequestMapping("result_session")
-	public String resultSession() { 
+	public String resultSession(Model model) {
+		model.addAttribute("id","모델로 저장한 아이디");
 		return "session/resultSession";
 	}
 	@RequestMapping("del_session")
