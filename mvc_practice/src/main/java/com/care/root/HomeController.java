@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.care.root.member.dto.MemberDTO;
+
 /**
  * Handles requests for the application home page.
  */
@@ -48,6 +50,12 @@ public class HomeController {
 		if(id.equals("abc")) {//인증성공시
 			//model.addAttribute("result","로그인 성공!");//model에 값 저장
 			rs.addFlashAttribute("result","리다이렉트 값 전달");
+			
+			//객체로 만들기도 가능
+			MemberDTO dto = new MemberDTO();
+			dto.setId(id);
+			rs.addFlashAttribute("test",dto);
+			
 			return "redirect:rsOK";//인증성공시 여기로
 		}else {
 			return "redirect:rsNO";//인증실패시 여기로

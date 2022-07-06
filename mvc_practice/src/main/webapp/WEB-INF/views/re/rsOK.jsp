@@ -9,6 +9,7 @@
 <body>
 <h1>rsOK페이지</h1>
 ${result }
+id : ${test.id }
 
 </body>
 </html>
