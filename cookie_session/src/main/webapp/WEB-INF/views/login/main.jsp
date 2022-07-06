@@ -8,10 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>main.jsp<br>
-			${loginNick } 님 환영합니다!<br>
-			${loginId } 님 환영합니다!<br> 
-			<a href="logout">logout</a>	
-<%-- 
 	<c:choose>
 		<c:when test="${loginId  == null}">
 			<script type="text/javascript">
@@ -25,6 +21,6 @@
 			<a href="logout">logout</a>		
 		</c:otherwise>
 	</c:choose>
---%>
+
 </body>
 </html> 

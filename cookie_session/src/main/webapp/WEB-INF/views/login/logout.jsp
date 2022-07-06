@@ -6,7 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body>logout.jsp<br>
+	<script type="text/javascript">
+		alert('로그아웃되었습니다');
+		location.href = 'login'
+	</script>
 
 </body>
 </html>

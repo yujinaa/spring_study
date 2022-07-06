@@ -32,18 +32,23 @@ public class LoginController {
 		}
 	}
 	@RequestMapping("main")
-	public void main(HttpSession session, HttpServletResponse response) {		
-		PrintWriter out = null;
-		response.setContentType("text/html; charset=utf-8");
-		try {
-			out = response.getWriter();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public String main(HttpSession session, HttpServletResponse response) {		
+//		PrintWriter out = null;
+//		response.setContentType("text/html; charset=utf-8");
+//		try {
+//			out = response.getWriter();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		if(session.getAttribute("loginId") != null) {
-			out.print("<script>alert('로그인 성공')</script>");//사용자에게 응답할 메시지
-			//return "login/main"; //null이 아니면 main으로			  
+			//out.print("<script>alert('로그인 성공')</script>");//사용자에게 응답할 메시지
+			return "login/main"; //null이 아니면 main으로			  
 		}
-		//return "redirect:login"; //null이면 login으로(무분별하게 페이지가 넘어가지 않도록)
+		return "redirect:login"; //null이면 login으로(무분별하게 페이지가 넘어가지 않도록)
+	}
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
+		session.invalidate();//모든 세션 완료
+		return "login/logout";
 	}
 }
