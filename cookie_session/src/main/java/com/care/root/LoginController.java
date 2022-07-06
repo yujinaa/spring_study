@@ -40,7 +40,6 @@ public class LoginController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		if(session.getAttribute("loginId") != null) {
 			out.print("<script>alert('로그인 성공')</script>");//사용자에게 응답할 메시지
 			//return "login/main"; //null이 아니면 main으로			  
