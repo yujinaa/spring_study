@@ -52,28 +52,28 @@ public class MemberController {
 		
 		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
 	}
-	@PostMapping("register1")//방법2.HttpServletRequest
-	public String register1(HttpServletRequest req){//회원가입시 id,pwd,name저장
-		System.out.println(req.getParameter("id"));//값 넘어갔는지 테스트
-		System.out.println(req.getParameter("pwd"));
-		System.out.println(req.getParameter("name"));
-		
-		ms.register(req.getParameter("id"),
-					req.getParameter("pwd"),
-					req.getParameter("name"));
-		
-		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
-	}
-	@PostMapping("register2")//방법3.그냥 dto값으로 받기
-	public String register2(MemberDTO dto){
-		System.out.println("dto.id : "+dto.getId());//값 넘어갔는지 테스트
-		System.out.println("dto.pwd : "+dto.getPwd());
-		System.out.println("dto.name : "+dto.getName());
-		
-//		ms.register(dto);
-		
-		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
-	}
+//	@PostMapping("register1")//방법2.HttpServletRequest
+//	public String register1(HttpServletRequest req){//회원가입시 id,pwd,name저장
+//		System.out.println(req.getParameter("id"));//값 넘어갔는지 테스트
+//		System.out.println(req.getParameter("pwd"));
+//		System.out.println(req.getParameter("name"));
+//		
+//		ms.register(req.getParameter("id"),
+//					req.getParameter("pwd"),
+//					req.getParameter("name"));
+//		
+//		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
+//	}
+//	@PostMapping("register2")//방법3.그냥 dto값으로 받기
+//	public String register2(MemberDTO dto){
+//		System.out.println("dto.id : "+dto.getId());//값 넘어갔는지 테스트
+//		System.out.println("dto.pwd : "+dto.getPwd());
+//		System.out.println("dto.name : "+dto.getName());
+//		
+////		ms.register(dto);
+//		
+//		return "redirect:index";//redirect는 주소를 재설정과 새로고침 기능을한다
+//	}
 	@RequestMapping("check")
 	public String check(Model model,RedirectAttributes re,//redirect로 넘기기위해 사용
 						@RequestParam("id") String id, @RequestParam("pwd") String pwd) {//id,pwd 받아오기

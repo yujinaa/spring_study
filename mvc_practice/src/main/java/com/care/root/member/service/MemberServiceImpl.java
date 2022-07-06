@@ -32,7 +32,7 @@ public class MemberServiceImpl implements MemberService{ //상속받기
 	
 	public void check(String id, String pwd, Model model) {
 		UserCheckDTO dto = dao.check(id,pwd);
-		model.addAttribute("ussercheck",dto);
+		model.addAttribute("usercheck",dto);
 	}
 	
 	public void memberInfo(String id, Model model) {

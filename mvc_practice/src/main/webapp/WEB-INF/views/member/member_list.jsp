@@ -18,7 +18,7 @@
 			<c:forEach var="mem" items="${list }">
 			<tr>
 				<td>${mem.id }</td> <td>${mem.pwd }</td>
-				<td>
+				<td> 
 	<a href="${contextPath }/member/memberInfo?id=${mem.id}">${mem.name }</a> <!-- memberInfo쪽으로 id넘긴다 -->
 	</td>
 			</tr>
