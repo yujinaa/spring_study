@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 
 import com.care.root.member.dao.MemberDAO;
 import com.care.root.member.dto.MemberDTO;
+import com.care.root.member.dto.UserCheckDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService{ //상속받기
@@ -27,6 +28,14 @@ public class MemberServiceImpl implements MemberService{ //상속받기
 	@Override
 	public void memberList(Model model) {
 		model.addAttribute("list",dao.memberList());//dto에 memberList()만들기
-
+	}
+	
+	public void check(String id, String pwd, Model model) {
+		UserCheckDTO dto = dao.check(id,pwd);
+		model.addAttribute("ussercheck",dto);
+	}
+	
+	public void memberInfo(String id, Model model) {
+		model.addAttribute("member", dao.memberInfo(id));
 	}
 }

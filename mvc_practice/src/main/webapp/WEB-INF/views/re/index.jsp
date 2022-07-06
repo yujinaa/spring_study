@@ -18,8 +18,8 @@
 
 
 	<form action="result">
-		<input type="text" name="id"><br> <input type="submit"
-			value="전송">
+		<input type="text" name="id"><br> 
+		<input type="submit" value="전송">
 	</form>
 
 </body>
