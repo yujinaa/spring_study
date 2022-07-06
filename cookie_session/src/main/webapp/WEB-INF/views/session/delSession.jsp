@@ -6,7 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body>del_session.jsp<br>
+	id : ${id }, ${sessionScope.id }<br> 
+	name : ${name },${sessionScope.name }<br>
+	<hr>
+	<a href="make_session">make_session</a>
+	<a href="result_session">result_session</a>
 
 </body>
 </html>

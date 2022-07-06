@@ -19,7 +19,7 @@ public class SessionController {
 	public String resultSession() { 
 		return "session/resultSession";
 	}
-	@RequestMapping("del_sessiion")
+	@RequestMapping("del_session")
 	public String delSession(HttpSession session) { //session만드는방법2.HttpSession(알아서 session 자동주입)
 		session.removeAttribute("id"); //세션 하나씩 삭제
 		//session.invalidate(); //모든 session 삭제(만료)
