@@ -14,7 +14,7 @@
 <img src="<c:url value='/resources/밀양-가을여행.jpg'/>" width="100px" height="100px"><!-- c:url 절대경로 -->
 <hr>
 <img src = "resources/test/sim.jpg" width="100px" height="100px"><!-- resources의 다른 폴더에 있는 사진 경로잡기 -->
-
+<img src="resources/css/sim.jpg" width="100px" height="100px"><!-- 외부파일 가져다 쓰기 가능 -->
 
 
 	<form action="result">
