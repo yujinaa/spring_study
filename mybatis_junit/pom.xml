@@ -115,7 +115,16 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>   
+		
+		<!-- spring-test -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>5.3.18</version>
+    <scope>test</scope>
+</dependency>
+		     
 	</dependencies>
     <build>
         <plugins>
