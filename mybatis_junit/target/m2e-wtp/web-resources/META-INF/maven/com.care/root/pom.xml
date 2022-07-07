@@ -136,6 +136,12 @@
     <artifactId>ojdbc6</artifactId>
     <version>11.2.0.4</version>
 </dependency>
+		   <!-- spring-jdbc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>${org.springframework-version}</version>
+</dependency>
 		     
 	</dependencies>
     <build>
