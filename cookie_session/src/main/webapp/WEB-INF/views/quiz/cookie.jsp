@@ -7,7 +7,7 @@
 	function popup() {
 		console.log("cookie => ","${cook}")
 		if("${cook}" == ""){
-			window.open("popup","new")     //쿠키가 없으면 popup 띄우기
+			window.open("popup","new",     //쿠키가 없으면 popup 띄우기
 			"width=300,height=200,top=500,left=500");
 		}
 	}
