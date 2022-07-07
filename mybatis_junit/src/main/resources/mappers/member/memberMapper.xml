@@ -3,5 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.root.member.dao.MemberDAO"><!-- namespace:연결할 인터페이스 --><!-- 경로맵핑 -->
+	
+	<!-- 값추가 : insert -->
+	<insert id="insertMember">
+		insert into test_mybatis values(#{id}, #{name})
+	</insert>
   
 </mapper>
