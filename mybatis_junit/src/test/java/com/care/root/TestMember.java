@@ -51,4 +51,8 @@ public class TestMember {
 		dto.setName("파스타");
 		ms.insertMember(dto);
 	}
+	@Test
+	public void testDaoMemberView() {
+		dao.memberView();
+	}
 }
