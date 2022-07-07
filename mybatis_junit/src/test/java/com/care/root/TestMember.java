@@ -44,4 +44,11 @@ public class TestMember {
 		dto.setName("샐러드");
 		dao.insertMember(dto);
 	}
+	@Test
+	public void testServiceIns() {
+		MemberDTO dto = new MemberDTO();
+		dto.setId(222);
+		dto.setName("파스타");
+		ms.insertMember(dto);
+	}
 }
