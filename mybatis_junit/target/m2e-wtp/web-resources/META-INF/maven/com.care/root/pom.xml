@@ -130,6 +130,12 @@
     <artifactId>HikariCP</artifactId>
     <version>3.3.1</version>
 </dependency>
+		   <!-- ojdbc6 -->
+<dependency>
+    <groupId>com.oracle.database.jdbc</groupId>
+    <artifactId>ojdbc6</artifactId>
+    <version>11.2.0.4</version>
+</dependency>
 		     
 	</dependencies>
     <build>
