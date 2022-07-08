@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,6 +35,10 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+	}
+	@GetMapping("/index")//기본페이지이기 때문에 member컨트롤러가아닌 home컨트롤러에서 연결해준다 , /이렇게 할경우 바로 index가 뜸
+	public String index() {
+		return "index";
 	}
 	
 }
