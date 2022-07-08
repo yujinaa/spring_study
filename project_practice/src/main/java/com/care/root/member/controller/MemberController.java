@@ -37,4 +37,9 @@ public class MemberController {
 		session.setAttribute("loginUser", id);
 		return "member/successLogin";
 	}
+	@GetMapping("logout")
+	public String logout(HttpSession session) {
+		if(session.getAttribute("loginUser") !=null)
+			return "redirect:index";
+	}
 }
