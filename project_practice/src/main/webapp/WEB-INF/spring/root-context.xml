@@ -12,8 +12,8 @@
 			value="oracle.jdbc.driver.OracleDriver" />
 		<property name="jdbcUrl"
 			value="jdbc:oracle:thin:@localhost:1521:xe" /><!-- 경로 -->
-		<property name="username" value="dbwls" /><!-- 아이디 -->
-		<property name="password" value="dbwls9874" /> <!-- 비밀번호 -->
+		<property name="username" value="dbwls" />
+		<property name="password" value="dbwls9874" /> 
 	</bean>
 	<!-- 히카리 데이터소스 빈 등록 -->
 	<bean id="ds" class="com.zaxxer.hikari.HikariDataSource">
@@ -24,8 +24,7 @@
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds" />
-		<property name="mapperLocations"
-			value="classpath:/mappers/**/*Mapper.xml" />
+		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" />
 	</bean>
 	<!-- 마이바티스 xml파일과 dao빈 연결 -->
 	<mybatis-spring:scan base-package="com.care.root.member.dao" />
