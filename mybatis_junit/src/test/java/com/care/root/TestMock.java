@@ -4,16 +4,21 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.config.ExecutorBeanDefinitionParser;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.care.root.member.controller.MemberController;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import java.util.concurrent.ExecutionException;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 
 @RunWith(SpringRunner.class)//@RunWith :테스트 동작 , SpringRunner : 이걸로 동작시키겠다
@@ -36,6 +41,13 @@ public class TestMock {
 		.andDo(print())//연결된 상태를 보여준다(계속 기능 추가 가능)
 		.andExpect(status().isOk())//상태가 200이면 성공
 		.andExpect(forwardedUrl("member/index")); //리턴경로가 member/index가 맞는지
+	}
+	@Test
+	@Transactional(transactionManager = "txMgr") //되돌리기
+	public void testInsert() throws Exception{
+		mock.perform(post("/insert").param("id", "999").param("name", " 고길동"))
+		.andDo(print())
+		.andExpect(status().is3xxRedirection());//상태가 redirect면 성공
 	}
 
 }
