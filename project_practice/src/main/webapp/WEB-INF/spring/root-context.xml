@@ -27,6 +27,6 @@
 		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" />
 	</bean>
 	<!-- 마이바티스 xml파일과 dao빈 연결 -->
-	<mybatis-spring:scan base-package="com.care.root.member.dao" />
+	<mybatis-spring:scan base-package="com.care.root.mybatis" /><!-- > 이렇게 해줘야 상위폴더까지만  적어야 밑으로 다 적용 -->
 		
 </beans>
