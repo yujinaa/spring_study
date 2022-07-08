@@ -51,7 +51,7 @@ nav ul li a {
 nav ul li a:hover {
 	color: orange;
 	padding-bottom: 3px; /* a태그 밑줄과 글씨 간격*/
-	border-bottom: 1px solid orange;
+	border-bottom: 1px solid white;
 	transition: all 0.25s;
 }
 
@@ -81,6 +81,7 @@ nav ul li a:hover {
 			<nav>
 				<ul>
 					<li><a href="${contextPath }/index">HOME</a></li>
+					<li><a href="${contextPath }/member/login">LOGIN</a></li>
 				</ul>
 			</nav>
 		</div>
