@@ -5,5 +5,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.root.mybatis.member.MemberMapper">
-  
+
+	<!-- 맵핑작업 -->
+	<resultMap type="com.care.root.member.dto.MemberDTO" id="member">
+		<id property="id" column="id"/><!-- primary키를 id로 지정 -->
+		<result property="pw" column="pw"/>
+		<result property="addr" column="addr"/>		
+	</resultMap>
+	<select id="userCheck">
+		select * from membership where id=#{id}
+	</select>
 </mapper>

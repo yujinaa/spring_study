@@ -1,5 +1,7 @@
 package com.care.root.mybatis.member;
 
-public interface MemberMapper {
+import com.care.root.member.dto.MemberDTO;
 
+public interface MemberMapper {
+	public MemberDTO usercheck(String id);//dto값 전달
 }
