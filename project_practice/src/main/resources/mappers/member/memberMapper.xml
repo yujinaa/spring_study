@@ -12,7 +12,7 @@
 		<result property="pw" column="pw"/>
 		<result property="addr" column="addr"/>		
 	</resultMap>
-	<select id="userCheck">
+	<select id="userCheck" resultMap="member"><!-- resultMap : 리턴타입을 맵핑 -->
 		select * from membership where id=#{id}
 	</select>
 </mapper>

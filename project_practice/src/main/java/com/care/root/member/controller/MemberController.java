@@ -25,6 +25,8 @@ public class MemberController {
 			return "redirect:successLogin";
 		}else {//로그인 실패시
 			return "redirect:login";
-		}		
+		}
+			
+		
 	}
 }
