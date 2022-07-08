@@ -33,7 +33,9 @@ public class TestMock {
 	public void testIndex() throws Exception{
 		System.out.println("test코드 실행");
 		mock.perform(get("/index")) //get방식으로 컨트롤러의 index페이지 요청 //경로앞에 무조건 /들어와야한다
-		.andDo(print());//연결된 상태를 보여준다(계속 기능 추가 가능)
+		.andDo(print())//연결된 상태를 보여준다(계속 기능 추가 가능)
+		.andExpect(status().isOk())//상태가 200이면 성공
+		.andExpect(forwardedUrl("member/index")); //리턴경로가 member/index가 맞는지
 	}
 
 }
