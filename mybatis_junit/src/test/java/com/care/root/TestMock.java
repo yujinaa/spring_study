@@ -43,11 +43,17 @@ public class TestMock {
 		.andExpect(forwardedUrl("member/index")); //리턴경로가 member/index가 맞는지
 	}
 	@Test
-	@Transactional(transactionManager = "txMgr") //되돌리기
+	@Transactional(transactionManager = "txMgr") //롤백기능으로 되돌리기
 	public void testInsert() throws Exception{
-		mock.perform(post("/insert").param("id", "999").param("name", " 고길동"))
+		mock.perform(post("/insert").param("id", "123").param("name", " 무야호"))
 		.andDo(print())
 		.andExpect(status().is3xxRedirection());//상태가 redirect면 성공
 	}
-
+	@Test
+	public void testMemberview() throws Exception {
+		mock.perform(get("/memberview")).andDo(print())
+		.andExpect(status().isOk())
+		.andExpect(forwardedUrl("member/memberview"))
+		.andExpect(model().attributeExists("list"));  //model에 데이터 중 list가 있냐
+	}
 }
