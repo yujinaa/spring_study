@@ -21,7 +21,12 @@
 			</tr>
 			<c:forEach items="${memberList }" var="mem">
 				<tr>
-					<td>${mem.id }</td>
+					<td>
+						<a href="info?id=${mem.id }"> <!-- 상대경로. 컨트롤러의 info에서 해당 id를 받아온다 -->
+								${mem.id }
+						</a>
+						 <!-- info에서 해당 id받아옴 -->
+					</td>
 					<td>${mem.pw }</td>
 					<td>${mem.addr }</td>
 				</tr>

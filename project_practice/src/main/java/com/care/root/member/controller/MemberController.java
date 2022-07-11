@@ -47,7 +47,12 @@ public class MemberController implements MemberSessionName{//공통모듈인 로
 	}
 	@GetMapping("memberInfo")
 	public String memberInfo(Model model) {
-		ms.memberInfo(model);//ms로 값 넘기기
+		ms.memberInfo(model);//ms로 값 넘기기, 여기 model은 모든정보
 		return "member/memberInfo";
+	}
+	@GetMapping("info")
+	public String info(@RequestParam String id, Model model) {
+		ms.info(model, id);//ms로 model, id 넘기기, 여기서의 model은 한사람 정보
+		return "member/info";
 	}
 }

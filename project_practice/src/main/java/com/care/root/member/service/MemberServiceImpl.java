@@ -22,4 +22,7 @@ public class MemberServiceImpl implements MemberService{//상속받기
 	public void memberInfo(Model model) {
 		model.addAttribute("memberList", mapper.memberInfo());
 	}
+	public void info(Model model,String id) {
+		model.addAttribute("info", mapper.userCheck(id));
+	}
 }
