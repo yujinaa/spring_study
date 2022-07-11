@@ -27,7 +27,11 @@ public class MemberServiceImpl implements MemberService{//상속받기
 	}
 	public int register(MemberDTO dto) {
 		int result = 0;
-		result = mapper.register(dto);
+		try {//중복아이디로 회원가입시 에러메시지가 안보이도록 예외처리
+			result = mapper.register(dto);			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 }
