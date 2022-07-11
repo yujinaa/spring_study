@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.care.root.common.MemberSessionName;
 import com.care.root.member.service.MemberService;
 
 @Controller
 @RequestMapping("member")//공통경로라 한번에 적음
-public class MemberController {
+public class MemberController implements MemberSessionName{//공통모듈인 로그인세션 상속받아 사용하기
 	@Autowired MemberService ms; //넘어갈 서비스 연결
 	@GetMapping("/login")
 	public String login() {
@@ -34,12 +35,12 @@ public class MemberController {
 	}
 	@GetMapping("/successLogin")
 	public String successLogin(@RequestParam String id, HttpSession session) {
-		session.setAttribute("loginUser", id);
+		session.setAttribute(LOGIN, id);// =loginUser(로그인한 사용자)
 		return "member/successLogin";
 	}
 	@GetMapping("logout")
 	public String logout(HttpSession session) {
-		if(session.getAttribute("loginUser") !=null)//세션이 있는 사용자라면
+		if(session.getAttribute(LOGIN) !=null)//세션이 있는 사용자라면
 			session.invalidate();//세션 종료
 			return "redirect:/index";//인덱스 페이지로 이동
 	}
