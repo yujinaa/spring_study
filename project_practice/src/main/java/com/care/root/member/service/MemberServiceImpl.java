@@ -25,4 +25,9 @@ public class MemberServiceImpl implements MemberService{//상속받기
 	public void info(Model model,String id) {
 		model.addAttribute("info", mapper.userCheck(id));
 	}
+	public int register(MemberDTO dto) {
+		int result = 0;
+		result = mapper.register(dto);
+		return result;
+	}
 }

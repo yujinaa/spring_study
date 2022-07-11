@@ -24,7 +24,9 @@
 					<td><input type="text" name="pw" placeholder="비밀번호"></td>
 				</tr>
 				<tr>
-					<td colspan="2" align="left">회원가입</td>
+					<td colspan="2" align="left">
+						<a href="register_form">회원가입</a>
+					</td>
 				</tr>
 			</table>
 		</form>
