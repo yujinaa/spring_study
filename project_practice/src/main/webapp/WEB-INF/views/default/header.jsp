@@ -84,12 +84,23 @@ nav ul li a:hover {
 					<li>
 						<c:choose>
 							<c:when test="${loginUser != null }"> <!-- 세션이 있다면 로그인 사용자니 -->
-								<a href="${contextPath }/member/logout">LOGOUT</a></li>	<!-- 로그아웃으로 변경 -->						
+								<a href="${contextPath }/member/memberInfo">MEMBER_SHIP</a> 	<!-- 로그아웃으로 변경 -->						
 							</c:when>
 							<c:otherwise>
-								<a href="${contextPath }/member/login">LOGIN</a></li><!-- 세션이 없다면 로그인으로 -->							
+								<a href="${contextPath }/member/login">MEMBER_SHIP</a><!-- 세션이 없다면 로그인으로 -->							
 							</c:otherwise>
 						</c:choose>
+					</li>
+					<li>
+						<c:choose>
+							<c:when test="${loginUser != null }"> <!-- 세션이 있다면 로그인 사용자니 -->
+								<a href="${contextPath }/member/logout">LOGOUT</a> 	<!-- 로그아웃으로 변경 -->						
+							</c:when>
+							<c:otherwise>
+								<a href="${contextPath }/member/login">LOGIN</a><!-- 세션이 없다면 로그인으로 -->							
+							</c:otherwise>
+						</c:choose>
+					</li>
 				</ul>
 			</nav>
 		</div>
