@@ -39,7 +39,8 @@ public class MemberController {
 	}
 	@GetMapping("logout")
 	public String logout(HttpSession session) {
-		if(session.getAttribute("loginUser") !=null)
-			return "redirect:index";
+		if(session.getAttribute("loginUser") !=null)//세션이 있는 사용자라면
+			session.invalidate();//세션 종료
+			return "redirect:/index";//인덱스 페이지로 이동
 	}
 }
