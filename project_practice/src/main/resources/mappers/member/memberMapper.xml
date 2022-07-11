@@ -15,4 +15,7 @@
 	<select id="userCheck" resultMap="member"><!-- resultMap : 리턴타입을 맵핑 -->
 		select * from membership where id=#{id}
 	</select>
+	<select id="memberInfo" resultMap="member">
+		select * from membership
+	</select>
 </mapper>

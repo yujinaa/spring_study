@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,5 +44,10 @@ public class MemberController implements MemberSessionName{//공통모듈인 로
 		if(session.getAttribute(LOGIN) !=null)//세션이 있는 사용자라면
 			session.invalidate();//세션 종료
 			return "redirect:/index";//인덱스 페이지로 이동
+	}
+	@GetMapping("memberInfo")
+	public String memberInfo(Model model) {
+		ms.memberInfo(model);//ms로 값 넘기기
+		return "member/memberInfo";
 	}
 }

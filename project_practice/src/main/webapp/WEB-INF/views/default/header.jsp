@@ -49,9 +49,9 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-	color: orange;
+	color: yellow;
 	padding-bottom: 3px; /* a태그 밑줄과 글씨 간격*/
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid yellow;
 	transition: all 0.25s;
 }
 
@@ -84,10 +84,10 @@ nav ul li a:hover {
 					<li>
 						<c:choose>
 							<c:when test="${loginUser != null }"> <!-- 세션이 있다면 로그인 사용자니 -->
-								<a href="${contextPath }/member/memberInfo">MEMBER_SHIP</a> 	<!-- 로그아웃으로 변경 -->						
+								<a href="${contextPath }/member/memberInfo">MEMBERSHIP</a> 
 							</c:when>
 							<c:otherwise>
-								<a href="${contextPath }/member/login">MEMBER_SHIP</a><!-- 세션이 없다면 로그인으로 -->							
+								<a href="${contextPath }/member/login">MEMBERSHIP</a><!-- 세션이 없다면 로그인으로 -->							
 							</c:otherwise>
 						</c:choose>
 					</li>

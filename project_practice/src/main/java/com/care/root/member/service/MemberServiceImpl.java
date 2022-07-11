@@ -2,6 +2,7 @@ package com.care.root.member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.care.root.member.dto.MemberDTO;
 import com.care.root.mybatis.member.MemberMapper;
@@ -17,5 +18,8 @@ public class MemberServiceImpl implements MemberService{//상속받기
 			}
 		}
 		return 1;//로그인 실패시 1을 돌려준다
+	}
+	public void memberInfo(Model model) {
+		model.addAttribute("memberList", mapper.memberInfo());
 	}
 }
