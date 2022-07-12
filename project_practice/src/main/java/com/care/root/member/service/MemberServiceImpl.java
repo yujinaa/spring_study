@@ -1,6 +1,7 @@
 package com.care.root.member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -10,6 +11,14 @@ import com.care.root.mybatis.member.MemberMapper;
 @Service
 public class MemberServiceImpl implements MemberService{//상속받기
 	@Autowired MemberMapper mapper; //mapper연결하기
+	BCryptPasswordEncoder encoder;//값을 암호화
+	
+	public MemberServiceImpl() {//객체 생성
+		encoder = new BCryptPasswordEncoder();
+	}
+	
+	
+	
 	public int userCheck(String id,String pw) {//오버라이딩
 		MemberDTO dto = mapper.userCheck(id);//id 넘기기
 		if(dto!=null) {//id있는경우
@@ -25,7 +34,11 @@ public class MemberServiceImpl implements MemberService{//상속받기
 	public void info(Model model,String id) {
 		model.addAttribute("info", mapper.userCheck(id));
 	}
-	public int register(MemberDTO dto) {
+	public int register(MemberDTO dto) {//비밀번호 암호화
+		System.out.println("비번 변경 전 : " + dto.getPw());
+		String securePw = encoder.encode(dto.getPw());
+		System.out.println("비번 변경 후 : " + securePw);
+		
 		int result = 0;
 		try {//중복아이디로 회원가입시 에러메시지가 안보이도록 예외처리
 			result = mapper.register(dto);	
