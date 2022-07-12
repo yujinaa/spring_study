@@ -27,11 +27,10 @@
 		<!-- 인터셉터 설정 -->
 		<interceptors>
 			<interceptor>
-				<!-- <mapping path="/index"/>  index 요청이 되면 -->
 				<mapping path="/member/memberInfo"/><!-- 사용자가 memberInfo 요청하면 -->
 				<beans:ref bean = "memberInterceptor"/> <!-- memberInterceptor 동작시켜라 -->
 			</interceptor>
 		</interceptors>
 		
-		
+		 
 </beans:beans>
