@@ -31,13 +31,11 @@
 		<interceptors>
 			<interceptor>
 				<mapping path="/member/memberInfo"/><!-- 사용자가 memberInfo 요청하면 -->
+				<mapping path="/test/board"/><!-- 사용자가 board 요청하면 -->
+				<mapping path="/test/write"/> <!-- 같은 인터셉터 사용가능 -->
 				<beans:ref bean = "memberInterceptor"/> <!-- memberInterceptor 동작시켜라 -->
 			</interceptor>
 
-			<interceptor>
-				<mapping path="/test/board"/><!-- 사용자가 board 요청하면 -->
-				<beans:ref bean = "bti"/> <!-- bti 동작시켜라 -->
-			</interceptor>
 		</interceptors>
 		
 		 
