@@ -36,8 +36,10 @@ public class MemberServiceImpl implements MemberService{//상속받기
 	}
 	public int register(MemberDTO dto) {//비밀번호 암호화
 		System.out.println("비번 변경 전 : " + dto.getPw());
-		String securePw = encoder.encode(dto.getPw());
+		String securePw = encoder.encode(dto.getPw()); //securePw :변경값
 		System.out.println("비번 변경 후 : " + securePw);
+		
+		dto.setPw(securePw);//변경값 dto에 저장하기
 		
 		int result = 0;
 		try {//중복아이디로 회원가입시 에러메시지가 안보이도록 예외처리
