@@ -48,11 +48,11 @@ public class MemberController implements MemberSessionName{//공통모듈인 로
 	}
 	@GetMapping("memberInfo")
 	public String memberInfo(Model model, HttpSession session) {
-		if(session.getAttribute(LOGIN)!=null) {//로그인이 되어있다면
+//		if(session.getAttribute(LOGIN)!=null) {//로그인이 되어있다면
 			ms.memberInfo(model);//ms로 값 넘기기, 여기 model은 모든정보
 			return "member/memberInfo";			
-		}
-		return "redirect:login";//로그인 안되있을경우
+//		}
+//		return "redirect:login";//로그인 안되있을경우
 	}
 	@GetMapping("info")
 	public String info(@RequestParam String id, Model model) {

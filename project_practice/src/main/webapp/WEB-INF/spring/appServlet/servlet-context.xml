@@ -13,22 +13,25 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/resources/**" location="/resources/"/>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
-		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="prefix" value="/WEB-INF/views/"/>
+		<beans:property name="suffix" value=".jsp"/>
 	</beans:bean>
 	
-	<context:component-scan base-package="com.care.root" />
+	<context:component-scan base-package="com.care.root"/>
 	
 	<beans:bean id ="memberInterceptor" class="com.care.root.member.interceptor.MemberInterceptor"/> <!-- class = "자료형"  id = "변수명"  -->
 		<!-- 인터셉터 설정 -->
 		<interceptors>
 			<interceptor>
-				<mapping path="/index"/> <!-- index 요청이 되면 -->
-				<beans:ref bean = "memberInterceptor"/><!-- memberInterceptor 동작시켜라 -->
+				<!-- <mapping path="/index"/>  index 요청이 되면 -->
+				<mapping path="/member/memberInfo"/><!-- 사용자가 memberInfo 요청하면 -->
+				<beans:ref bean = "memberInterceptor"/> <!-- memberInterceptor 동작시켜라 -->
 			</interceptor>
 		</interceptors>
+		
+		
 </beans:beans>
