@@ -85,6 +85,9 @@ nav ul li a:hover {
 								<a href="${contextPath }/member/memberInfo">MEMBERSHIP</a> 
 					</li>
 					<li>
+								<a href="${contextPath }/test/board">TEST_BOARD</a> 
+					</li>
+					<li>
 						<c:choose>
 							<c:when test="${loginUser != null }"> <!-- 세션이 있다면 로그인 사용자니 -->
 								<a href="${contextPath }/member/logout">LOGOUT</a> 	<!-- 로그아웃으로 변경 -->						
