@@ -23,6 +23,12 @@
 	
 	<context:component-scan base-package="com.care.root" />
 	
-	
-	
+	<beans:bean id ="memberInterceptor" class="com.care.root.member.interceptor.MemberInterceptor"/> <!-- class = "자료형"  id = "변수명"  -->
+		<!-- 인터셉터 설정 -->
+		<interceptors>
+			<interceptor>
+				<mapping path="/index"/> <!-- index 요청이 되면 -->
+				<beans:ref bean = "memberInterceptor"/><!-- memberInterceptor 동작시켜라 -->
+			</interceptor>
+		</interceptors>
 </beans:beans>

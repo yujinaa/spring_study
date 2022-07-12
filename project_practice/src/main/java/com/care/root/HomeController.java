@@ -38,6 +38,7 @@ public class HomeController {
 	}
 	@GetMapping("/index")//기본페이지이기 때문에 member컨트롤러가아닌 home컨트롤러에서 연결해준다 , /이렇게 할경우 바로 index가 뜸
 	public String index() {
+		System.out.println("컨트롤러의 index 실행");
 		return "index";
 	}
 	
