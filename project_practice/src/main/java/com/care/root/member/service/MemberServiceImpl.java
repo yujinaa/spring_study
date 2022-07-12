@@ -22,7 +22,8 @@ public class MemberServiceImpl implements MemberService{//상속받기
 	public int userCheck(String id,String pw) {//오버라이딩
 		MemberDTO dto = mapper.userCheck(id);//id 넘기기
 		if(dto!=null) {//id있는경우
-			if(pw.equals(dto.getPw())) {//사용자가 입력한 pw가 dto의 pw와 같다면
+			//if(pw.equals(dto.getPw())) {//사용자가 입력한 pw가 dto의 pw와 같다면
+			if(encoder.matches(pw, dto.getPw())){//비번암호화를 했기 때문에 비교를 해야한다(pw:암호화 되지않은 사용자입력값,dto.getPw():암호화된값 
 				return 0;//로그인 성공이면 0
 			}
 		}
@@ -31,7 +32,7 @@ public class MemberServiceImpl implements MemberService{//상속받기
 	public void memberInfo(Model model) {
 		model.addAttribute("memberList", mapper.memberInfo());
 	}
-	public void info(Model model,String id) {
+	public void info(Model model,String id) { 
 		model.addAttribute("info", mapper.userCheck(id));
 	}
 	public int register(MemberDTO dto) {//비밀번호 암호화
