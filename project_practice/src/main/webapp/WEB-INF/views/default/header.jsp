@@ -56,13 +56,13 @@ nav ul li a:hover {
 }
 
 .title { /*오른, 아래, 번짐*/
-	text-shadow: 10px 10px 15px black;
+	text-shadow: 10px 10px 15px gray;
 	font-size: 70pt;
 	text-align: center;
 	margin-top: 0px;
 	padding-bottom: 20px;
 	color: maroon;
-	font-family: Gabriola;
+	font-family: times new roman;
 }
 
 .content {
