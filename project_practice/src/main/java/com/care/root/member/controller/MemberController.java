@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,8 +70,17 @@ public class MemberController implements MemberSessionName{//공통모듈인 로
 		return "member/successLogin";
 	}
 	@GetMapping("logout")
-	public String logout(HttpSession session) {
-		if(session.getAttribute(LOGIN) !=null)//세션이 있는 사용자라면
+	public String logout(HttpSession session,
+						HttpServletResponse response,
+						@CookieValue(value="loginCookie",required = false) Cookie loginCookie) {
+		//자동로그아웃
+		if(session.getAttribute(LOGIN) !=null){//세션이 있는 사용자라면
+			if(loginCookie != null) {
+				loginCookie.setMaxAge(0);
+				response.addCookie(loginCookie);
+				ms.keepLogin("nan", new java.sql.Date(System.currentTimeMillis()), (String)session.getAttribute(LOGIN));//nan:원래 쿠키값, date:시간설정, LOGIN:비교할 아이디
+			}
+	}
 			session.invalidate();//세션 종료
 			return "redirect:/index";//인덱스 페이지로 이동
 	}

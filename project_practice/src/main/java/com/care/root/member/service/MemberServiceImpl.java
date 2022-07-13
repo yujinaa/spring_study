@@ -62,4 +62,7 @@ public class MemberServiceImpl implements MemberService{//상속받기
 		mapper.keepLogin(map);
 		
 	}
+	public MemberDTO getUserSessionId(String sessionId) {
+		return mapper.getUserSessionId(sessionId);
+	}
 }
