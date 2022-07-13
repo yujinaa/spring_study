@@ -26,6 +26,10 @@
 	<beans:bean id ="memberInterceptor" class="com.care.root.member.interceptor.MemberInterceptor"/> <!-- class = "자료형"  id = "변수명"  -->
 	
 	<beans:bean id ="bti" class="com.care.root.testboard.BoardTestInterceptor"/> <!-- class = "자료형"  id = "변수명"  -->
+
+	<beans:bean id ="autoLogin" class="com.care.root.member.interceptor.AutoLoginInterceptor"/> <!-- class = "자료형"  id = "변수명"  -->
+
+
 	
 		<!-- 인터셉터 설정 -->
 		<interceptors>
