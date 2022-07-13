@@ -26,17 +26,24 @@ public class MemberController implements MemberSessionName{//공통모듈인 로
 	}
 	@PostMapping("/user_check")
 	public String userCheck(@RequestParam String id, @RequestParam String pw, //사용자로부터 id,pwd넘어오면
+							@RequestParam(required = false) String autoLogin,//값이 없으면 null값 처리
 							RedirectAttributes rs) {
 		int result = ms.userCheck(id, pw);//service로 id,pw넘긴다
+		System.out.println("autoLogin : " + autoLogin);
 		if(result == 0) {//로그인 성공시
 			rs.addAttribute("id",id);//jsp까지 연동, 컨트롤러까지만 연결할거면 model도 사용가능
+			rs.addAttribute("autoLogin",autoLogin);
 			return "redirect:successLogin";
 		}else {//로그인 실패시
 			return "redirect:login";
 		}		
 	}
 	@GetMapping("/successLogin")
-	public String successLogin(@RequestParam String id, HttpSession session) {
+	public String successLogin(@RequestParam String id, 
+								@RequestParam(required = false) String autoLogin,
+								HttpSession session) {
+		System.out.println("id :" + id);
+		System.out.println("autoLogin :" + autoLogin);
 		session.setAttribute(LOGIN, id);// =loginUser(로그인한 사용자)
 		return "member/successLogin";
 	}

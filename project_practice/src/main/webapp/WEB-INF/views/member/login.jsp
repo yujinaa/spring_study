@@ -13,7 +13,7 @@
 		<h1>로그인 페이지</h1>
 	</div>
 	<div align="center">
-		<form action="/root/member/user_check" method="post">
+		<form action="<%=request.getContextPath() %>/member/user_check" method="post">
 			<table>
 				<tr>
 					<td><input type="text" name="id" placeholder="아이디"></td>
@@ -26,6 +26,7 @@
 				<tr>
 					<td colspan="2" align="left">
 						<a href="register_form">회원가입</a>
+						<input type="checkbox" name="autoLogin">로그인 유지
 					</td>
 				</tr>
 			</table>
