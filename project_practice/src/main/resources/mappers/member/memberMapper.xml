@@ -21,7 +21,7 @@
 		select * from membership
 	</select>
 	<insert id="register">
-  		insert into membership values(#{id}, #{pw}, #{addr})
+  		insert into membership(id,pw,addr) values(#{id}, #{pw}, #{addr}) <!-- dto 값은 5개인데 여기는 3개만 넣을거라 문제가 생겨서 지정해준다 -->
   	</insert>
   	
   	<update id="keepLogin">

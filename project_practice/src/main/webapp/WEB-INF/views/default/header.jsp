@@ -86,7 +86,7 @@ nav ul li a:hover {
 					</li>
 					<li>
 								<a href="${contextPath }/test/board">TEST_BOARD</a> 
-								<a href="${contextPath }/test/write">TEST_WRITE</a> 
+								<!-- <a href="${contextPath }/test/write">TEST_WRITE</a> S -->
 					</li>
 					<li>
 						<c:choose>
