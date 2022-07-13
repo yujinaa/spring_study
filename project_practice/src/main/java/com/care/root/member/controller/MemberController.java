@@ -69,13 +69,14 @@ public class MemberController implements MemberSessionName{//공통모듈인 로
 		}
 		return "member/successLogin";
 	}
-	@GetMapping("logout")
+	@GetMapping("/logout")
 	public String logout(HttpSession session,
-						HttpServletResponse response,
-						@CookieValue(value="loginCookie",required = false) Cookie loginCookie) {
+						HttpServletResponse response,@CookieValue(value="loginCookie",required = false) Cookie loginCookie
+						) {
 		//자동로그아웃
 		if(session.getAttribute(LOGIN) !=null){//세션이 있는 사용자라면
 			if(loginCookie != null) {
+				loginCookie.setPath("/"); 
 				loginCookie.setMaxAge(0);
 				response.addCookie(loginCookie);
 				ms.keepLogin("nan", new java.sql.Date(System.currentTimeMillis()), (String)session.getAttribute(LOGIN));//nan:원래 쿠키값, date:시간설정, LOGIN:비교할 아이디
