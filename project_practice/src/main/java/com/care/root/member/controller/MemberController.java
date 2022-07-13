@@ -1,5 +1,8 @@
 package com.care.root.member.controller;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -54,6 +57,13 @@ public class MemberController implements MemberSessionName{//공통모듈인 로
 			loginCookie.setPath("/");
 			loginCookie.setMaxAge(limitTime);
 			response.addCookie(loginCookie);
+			
+			Calendar cal = Calendar.getInstance();//캘린더를 이용해야 시간 이용 가능
+			cal.setTime(new Date());//캘린더 형태로 시간 변환
+			cal.add(Calendar.MONTH, 3);//현재시간에서 3개월 후 설정
+			
+			java.sql.Date limitDate = new java.sql.Date(cal.getTimeInMillis());//자바 현재시간을 sql로 변환 
+			ms.keepLogin(session.getId(), limitDate, id);
 		}
 		return "member/successLogin";
 	}

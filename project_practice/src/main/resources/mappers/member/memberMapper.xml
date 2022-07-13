@@ -11,6 +11,8 @@
 		<id property="id" column="id"/><!-- primary키를 id로 지정 -->
 		<result property="pw" column="pw"/>
 		<result property="addr" column="addr"/>		
+		<result property="limitTime" column="limit_time"/>	<!-- 자바 dto는 합성어는 대문자, db에 있는 합성어는 _ -->
+		<result property="sessionId" column="session_id"/>		
 	</resultMap>
 	<select id="userCheck" resultMap="member"><!-- resultMap : 리턴타입을 맵핑 -->
 		select * from membership where id=#{id}
@@ -21,4 +23,9 @@
 	<insert id="register">
   		insert into membership values(#{id}, #{pw}, #{addr})
   	</insert>
+  	
+  	<update id="keepLogin">
+  		update membership set session_id=#{sessionId},
+  		limit_time=#{limitDate} where id=#{id}
+  	</update>
 </mapper>
