@@ -1,5 +1,7 @@
 package com.care.root.member.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +43,18 @@ public class MemberController implements MemberSessionName{//공통모듈인 로
 	@GetMapping("/successLogin")
 	public String successLogin(@RequestParam String id, 
 								@RequestParam(required = false) String autoLogin,
-								HttpSession session) {
+								HttpSession session, 
+								HttpServletResponse response) {
 		System.out.println("id :" + id);
 		System.out.println("autoLogin :" + autoLogin);
 		session.setAttribute(LOGIN, id);// =loginUser(로그인한 사용자)
+		if(autoLogin != null) {//사용자가 체크박스를 체크했다면
+			int limitTime = 60*60*24*90;//90일
+			Cookie loginCookie = new Cookie("loginCookie",session.getId());//session.getId() :거의 유일한 값
+			loginCookie.setPath("/");
+			loginCookie.setMaxAge(limitTime);
+			response.addCookie(loginCookie);
+		}
 		return "member/successLogin";
 	}
 	@GetMapping("logout")
