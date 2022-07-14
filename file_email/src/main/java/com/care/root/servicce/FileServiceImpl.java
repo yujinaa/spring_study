@@ -28,12 +28,13 @@ public class FileServiceImpl implements FileService {
 			SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss-"); //이미지 이름이 같으면 현재 시간 부여되게해야 덮어쓰지 않는다
 			Calendar calendar = Calendar.getInstance();
 
-			String sysFileName = format.format(calendar.getTime()) + file.getOriginalFilename();
+			String sysFileName = format.format(calendar.getTime());
 			sysFileName += file.getOriginalFilename(); 
 			//2022111512-파일이름 
 			
 			//파일 선택했을 때 변경된 이름
 			dto.setImgName(sysFileName);//dto에 파일 이미지 넣기
+			System.out.println(file.getOriginalFilename());
 
 			File saveFile = new File(IMAGE_REPO+"/" + sysFileName);
 
