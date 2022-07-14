@@ -2,6 +2,8 @@ package com.care.root.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,6 +32,11 @@ public class FileUploadController {
 //		System.out.println("originalName : " + originalName);
 		fs.fileProcess(mul);
 		return "redirect:form";
+	}
+	@GetMapping("views")
+	public String view(Model model) {
+		fs.getShoesImage(model);//서비스로 넘기기
+		return "result";
 	}
 
 }

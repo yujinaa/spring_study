@@ -7,6 +7,7 @@ import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -45,5 +46,8 @@ public class FileServiceImpl implements FileService {
 		else {dto.setImgName("nan");//파일 선택하지 않았을 때 비어있는 이름
 		}
 		fm.saveData(dto); //데이터 넘기기
+	}
+	public void getShoesImage(Model model) {
+		model.addAttribute("list", fm.getShoesImage());
 	}
 }

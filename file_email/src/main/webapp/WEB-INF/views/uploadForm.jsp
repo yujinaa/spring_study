@@ -16,7 +16,8 @@
 		<input type="text" name="name"><br>
 		<input type="file" name="file"><br>
 		<input type="submit" value = "업로드"><br>
-	
 	</form>
+	<hr>
+	<a href="${contextPath }/views">파일보기</a>
 </body>
 </html>
