@@ -22,7 +22,7 @@ public class MailController {
 		sb.append("<img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqWj4CcnT6AHv-rk1pPl6YWV94FRzjZEPh0w&usqp=CAU\">");
 		sb.append("</a>");
 		
-		String msg = sb.toString();//Sring으로 변환헤야한다
+		String msg = sb.toString();//단순 Sring으로 변환
 		
 		
 		ms.sendMail("받을메일계정", "(제목)광고",msg); //만든 msg를 보내기
