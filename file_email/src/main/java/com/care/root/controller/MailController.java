@@ -16,7 +16,16 @@ public class MailController {
 	@GetMapping("sendmail")
 	public void sendMail(HttpServletResponse response) throws Exception{
 		
-		ms.sendMail("받을메일계정", "(제목)텍스트 메일","(내용)메일 보냅니다");
+		StringBuffer sb = new StringBuffer();
+		sb.append("<h1>제품소개</h1>");
+		sb.append("<a href=\"https://comic.naver.com/index\">");
+		sb.append("<img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqWj4CcnT6AHv-rk1pPl6YWV94FRzjZEPh0w&usqp=CAU\">");
+		sb.append("</a>");
+		
+		String msg = sb.toString();//Sring으로 변환헤야한다
+		
+		
+		ms.sendMail("받을메일계정", "(제목)광고",msg); //만든 msg를 보내기
 		
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
