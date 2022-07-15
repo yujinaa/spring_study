@@ -18,7 +18,7 @@ public class MailController {
 		
 		ms.sendMail("받을메일계정", "(제목)텍스트 메일","(내용)메일 보냅니다");
 		
-		response.setContentType("test/html;charset=utf-8");
+		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.print("메일이 전송되었습니다");
 	}
