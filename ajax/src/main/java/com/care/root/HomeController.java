@@ -50,7 +50,7 @@ public class HomeController {
 					produces = "application/json; charset=utf-8")
 	@ResponseBody
 //	public InfoDTO ajaxResult01(@RequestBody InfoDTO dto) {
-	public Map jaxResult01(@RequestBody Map<String, Object> dto) {//map도 키와 값으로 이루어져 있기 때문에 처리 가능
+	public Map<String, Object> jaxResult01(@RequestBody Map<String, Object> dto) {//map도 키와 값으로 이루어져 있기 때문에 처리 가능
 		System.out.println("이름 : " + dto.get("name"));
 		System.out.println("나이 : " + dto.get("age"));
 		System.out.println("주소 : " + dto.get("addr"));
