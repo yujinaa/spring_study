@@ -38,6 +38,11 @@ public class HomeController {
 	public String ajaxrEsult() {
 		return ++cnt + "";
 	}
+	
+	@GetMapping("ajax01")
+	public String ajax01() {
+		return "ajax01";
+	}
 
 	/**
 	 * Simply selects the home view to render by returning its name.
