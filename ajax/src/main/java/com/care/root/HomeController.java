@@ -34,7 +34,7 @@ public class HomeController {
 	}
 	static int cnt = 0;
 	@GetMapping("ajax_result")
-	@ResponseBody
+	@ResponseBody//ajax쓸때 무조건 있어야하고, body쪽으로 응답하겠다는 의미
 	public String ajaxrEsult() {
 		return ++cnt + "";
 	}
