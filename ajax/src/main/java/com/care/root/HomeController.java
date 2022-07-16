@@ -25,12 +25,13 @@ public class HomeController {
 		System.out.println("non ajax 실행");
 		return "non_ajax";
 	}
+	
 	@GetMapping("ajax")//비동기 통신방식
 	public String ajax() {
-		System.out.println("ajax실행");
+		System.out.println("ajax실행!!!");
 		return "ajax";
 	}
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
