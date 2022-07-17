@@ -19,6 +19,7 @@
 			*/
 			
 			//반복문으로 나타내기
+			let html = ""
 			for(var i = 0;i<list.length;i++){
 			html += "<b>이름 : </b>" +list[1].name + "살<br>"
 			html += "<b>나이 : </b>" +list[1].name + "살<hr>"
