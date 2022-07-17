@@ -20,10 +20,18 @@
 			
 			//반복문으로 나타내기
 			let html = ""
+			/*
 			for(var i = 0;i<list.length;i++){
 			html += "<b>이름 : </b>" +list[1].name + "살<br>"
 			html += "<b>나이 : </b>" +list[1].name + "살<hr>"
 			}
+			*/
+			
+			//포이치문
+			$.each(list, function(index, item) {
+				html += "<b>이름 : </b>" +item.name + "살<br>"
+				html += "<b>나이 : </b>" +item.name + "살<hr>"
+			})
 			//$("#users").html(html)	//html형태로 들어온다
 			
 			//더보기 기능으로 만들기
