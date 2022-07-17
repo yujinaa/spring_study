@@ -24,6 +24,11 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	@GetMapping("getuser")
+	public String getUser() {
+		return "getuser";
+	}
+	
 	@GetMapping("rest01")
 	public String rest01() {
 		return "rest01";
