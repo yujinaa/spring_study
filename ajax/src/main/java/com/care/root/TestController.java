@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +20,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 	static int cnt = 0; //db가 연결돼 있다는 가정 하에 만든 코드
 	static Map<String, InfoDTO> DBMap = new HashMap<String, InfoDTO>();
-	@GetMapping(value = "rest",produces = "application/json;charset=utf-8")
+	
+	@GetMapping(value = "user",produces = "application/json;charset=utf-8")
 	public InfoDTO user(@RequestParam String id) {
+		//select * from member where id =id;
 		return DBMap.get(id);
 	}
+	
+	//요즘엔 이렇게 쓴다
+	@GetMapping(value = "user/{name}",produces = "application/json;charset=utf-8")
+	public InfoDTO user1(@PathVariable String name) {
+		//select * from member where id =id;
+		return DBMap.get(name);
+	}
+	
 	
 	public ArrayList<InfoDTO> users(){
 		ArrayList<InfoDTO> list = new ArrayList<InfoDTO>();

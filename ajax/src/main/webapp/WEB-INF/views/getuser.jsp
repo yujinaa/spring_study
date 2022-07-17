@@ -42,7 +42,8 @@
 	function userInfo() {
 		var userId = $("#userId").val()
 		$.ajax({
-			url : "userr?id="+userId,
+			//url : "user?id="+userId,             //경로:user?id=홍길동1
+			url : "user/"+userId, //요즘엔 이렇게 쓴다 //경로:user/홍길동1
 			type : "get",
 			dataType:"json",
 			success : function(dto) {
