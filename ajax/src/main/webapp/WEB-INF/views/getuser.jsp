@@ -11,8 +11,22 @@
 	$.ajax({
 		url : "users", type: "get", getaType: "json",
 		success : function(list) {
-			$("#users").text(list)
+			//$("#users").text(list)
 			console.lig(list)
+			/*
+			let html = "<b>이름 : </b>" +list[0].name + "님<br>"
+			html += "<b>나이 : </b>" +list[0].name + "살<hr>"
+			*/
+			
+			//반복문으로 나타내기
+			for(var i = 0;i<list.length;i++){
+			html += "<b>이름 : </b>" +list[1].name + "살<br>"
+			html += "<b>나이 : </b>" +list[1].name + "살<hr>"
+			}
+			//$("#users").html(html)				//html형태로 들어온다
+			
+			//더보기 기능으로 만들기
+			$("#users").append(html)
 		}
 	})
 }
