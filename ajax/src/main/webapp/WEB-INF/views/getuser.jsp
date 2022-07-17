@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,15 +54,63 @@
 			}
 		})
 	}
-	
+	function membership() {
+		/*
+		let uId = $("#uId").val();
+		let uName = $("#uName").val();
+		let uAge = $("#uAge").val();
+		let uAddr = $("#uAddr").val();
+		let uPhone = $("#uPhone").val();
+		let form = {uId:uId, uName:uName, uAge:uAge, uAddr:uAddr,uPhone:uPhone }
+		*/
+		
+		//반복문으로 표현하기
+		let form = {}
+		let arr = $("#fo").serializeArray()
+		console.log(arr)
+		for(var i = 0; i<arr.length; i++){
+			form[arr[i].name = arr[i].value]
+		}
+		
+		$.ajax({
+			url : "membership", 
+			type: "post",
+			dataType: "json",
+			data : JSON.stringify(form),
+			contentType: "application/json; charset=utf-8",
+			seccess : function(test) {
+				alert('저장 성공')
+			}
+		})
+	}
+	 
 </script>
 </head>
 <body>
-	<span id = "users"></span>
+	<span id="users"></span>
 	<hr>
 	<button type="button" onclick="getUsers()">사용자 목록 보기</button>
 	<hr>
 	<input type="text" id="userId">
 	<button type="button" onclick="userInfo()">개인 정보 보기</button>
+
+	<hr>
+	<input type="text" id="name" placeholder="수정할 이름 입력(존재하는 이름 입력)">
+	<br>
+	<input type="text" id="age" placeholder="수정 나이 입력">
+	<br>
+	<button type="button" onclick="modify()">수정</button>
+
+	<hr>
+	<h3>회원가입</h3>
+	<form id="fo">
+		<input type="text" id="uId" name="id"><br> <input
+			type="text" id="uName" name="uName"><br> <input
+			type="text" id="uAge" name="uAge"><br> <input
+			type="text" id="uAddr" name="uAddr"><br> <input
+			type="text" id="uPhone" name="uPhone"><br> <input
+			type="button" onclick="membership()" value="회원가입"><br>
+
+	</form>
 </body>
 </html>

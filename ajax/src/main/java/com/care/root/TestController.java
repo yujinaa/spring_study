@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 	static int cnt = 0; //db가 연결돼 있다는 가정 하에 만든 코드
 	static Map<String, InfoDTO> DBMap = new HashMap<String, InfoDTO>();
+	
+	@PostMapping(value="membership", produces = "application/json;charset=utf-8")
+	public String membership(@RequestBody Map<String, Object>member) {
+		System.out.println(member.get("uId"));
+		System.out.println(member.get("uName"));
+		System.out.println(member.get("uAge"));
+		System.out.println(member.get("uAddr"));
+		System.out.println(member.get("uPhone"));
+		return "{\"test\":true}";
+	}
 	
 	@GetMapping(value = "user",produces = "application/json;charset=utf-8")
 	public InfoDTO user(@RequestParam String id) {
