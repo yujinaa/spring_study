@@ -30,7 +30,7 @@
 			//포이치문
 			$.each(list, function(index, item) {
 				html += "<b>이름 : </b>" +item.name + "살<br>"
-				html += "<b>나이 : </b>" +item.name + "살<hr>"
+				html += "<b>나이 : </b>" +item.age + "살<hr>"
 			})
 			//$("#users").html(html)	//html형태로 들어온다
 			
@@ -39,6 +39,20 @@
 		}
 	})
 }
+	function userInfo() {
+		var userId = $("#userId").val()
+		$.ajax({
+			url : "userr?id="+userId,
+			type : "get",
+			dataType:"json",
+			success : function(dto) {
+				console.log(dto)
+				let html += "<b>이름 : </b>" + dto.name + "님<br>"
+				html += "<b>나이 : </b>" +dto.age + "살<hr>"
+				$("#users").html(html)
+			}
+		})
+	}
 	
 </script>
 </head>
@@ -46,5 +60,8 @@
 	<span id = "users"></span>
 	<hr>
 	<button type="button" onclick="getUsers()">사용자 목록 보기</button>
+	<hr>
+	<input type="text" id="userId">
+	<button type="button" onclick="userInfo()">개인 정보 보기</button>
 </body>
 </html>

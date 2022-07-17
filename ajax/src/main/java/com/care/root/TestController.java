@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 //요청돼는 방식을 살펴보자
@@ -18,6 +20,10 @@ public class TestController {
 	static int cnt = 0; //db가 연결돼 있다는 가정 하에 만든 코드
 	static Map<String, InfoDTO> DBMap = new HashMap<String, InfoDTO>();
 	@GetMapping(value = "rest",produces = "application/json;charset=utf-8")
+	public InfoDTO user(@RequestParam String id) {
+		return DBMap.get(id);
+	}
+	
 	public ArrayList<InfoDTO> users(){
 		ArrayList<InfoDTO> list = new ArrayList<InfoDTO>();
 		for(int i =cnt; i<cnt+10;i++) {
