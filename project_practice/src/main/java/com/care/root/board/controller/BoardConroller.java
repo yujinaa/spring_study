@@ -30,6 +30,7 @@ public class BoardConroller {
 	public String writeForm() {
 		return "board/writeForm";
 	}
+
 	@PostMapping("writeSave")
 	public void writeSave(MultipartHttpServletRequest mul, //글쓰기를 클릭하면 모든값이 들어온다
 			HttpServletResponse response,

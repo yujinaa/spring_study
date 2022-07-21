@@ -39,10 +39,14 @@
 		class="com.care.root.member.interceptor.AutoLoginInterceptor" />
 
 
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="52428800" />
+		<beans:property name="defaultEncoding" value="utf-8" />
+	</beans:bean>
+	
+	
 	<interceptors>
-
 		<interceptor>
-
 			<mapping path="/index" /> <!-- 같은 인터셉터 사용가능 -->
 			<beans:ref bean="autoLogin" /> <!-- memberInterceptor 동작시켜라 -->
 		</interceptor>
@@ -62,9 +66,5 @@
 
 	</interceptors>
 
-	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<beans:property name="maxUploadSize" value="52428800" />
-		<beans:property name="defaultEncoding" value="utf-8" />
-	</beans:bean>
 
 </beans:beans>
