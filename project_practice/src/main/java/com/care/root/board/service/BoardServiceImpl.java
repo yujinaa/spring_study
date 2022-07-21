@@ -36,6 +36,12 @@ public class BoardServiceImpl implements BoardService{
 		}else {
 			dto.setImageFileName("nan");
 		}
-		return bfs.getMessage(mapper.writeSave(dto), request);//메시지가 있을 경우 0 또는 1을 넘긴다
+		int result = 0;
+		try {
+			result = mapper.writeSave(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bfs.getMessage(result, request);//메시지가 있을 경우 0 또는 1을 넘긴다
 	}
 }

@@ -30,8 +30,7 @@
 	<c:import url="../default/header.jsp" />
 	<div id="wrap" style="width: 400px; margin: 0 auto;">
 		<h1 style="text-align: center">글쓰기</h1>
-		<form method="post" action="${contextPath}/board/writeSave"
-			enctype="multipart/form-data">
+		<form method="post" action="${contextPath}/board/writeSave" enctype="multipart/form-data">
 			<b>작성자</b><br>
 			<!-- readonly : 읽기 전용 -->
 			<input type="text" name="id" value="${loginUser }" readonly />
@@ -41,12 +40,12 @@
 			<b>내용</b> <br>
 			<textarea name="content" rows="10" cols="50"></textarea>
 			<hr>
-			<b>이미지파일 첨부</b><br> <input type="file" name="image_file_name"
-				onchange="readURL(this);" /> <img id="preview" src="#" width=100
-				height=100 alt="선택된 이미지가 없습니다" />
+			<b>이미지파일 첨부</b><br> 
+			<input type="file" name="image_file_name" onchange="readURL(this);" />
+			<img id="preview" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
 			<hr>
-			<input type="submit" value="글쓰기" /> <input type=button value="목록보기"
-				onClick="location.href='${contextPath}/board/boardAllList'">
+			<input type="submit" value="글쓰기" /> 
+			<input type=button value="목록보기" onClick="location.href='${contextPath}/board/boardAllList'">
 		</form>
 	</div>
 	<c:import url="../default/footer.jsp" />
