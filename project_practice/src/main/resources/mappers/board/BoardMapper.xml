@@ -18,4 +18,9 @@
 	select * from mvc_board
 </select>
 
+<insert id="writeSave" >
+    insert into mvc_board(write_no,id,title,content,image_file_name)
+    values(mvc_board_seq.nextval,#{id},#{title},#{content},#{imageFileName})
+</insert>
+
 </mapper>

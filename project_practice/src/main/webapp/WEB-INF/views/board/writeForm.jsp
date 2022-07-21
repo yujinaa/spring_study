@@ -12,13 +12,13 @@
    function readURL(input) {//있는 그대로 써야하는 코드다. 바뀔코드가 없음.그대로 사용할것
       var file = input.files[0] //파일에 대한 정보
       console.log(file)
-      if (file != '') {
-         var reader = new FileReader();
+      if (file != '') {//파일이 선택되었다면
+         var reader = new FileReader();//파일 객체를 만들어주었다.
          reader.readAsDataURL(file); //파일의 정보를 토대로 파일을 읽고 
          reader.onload = function (e) { // 파일 로드한 값을 표현한다
           //e : 이벤트 안에 result값이 파일의 정보를 가지고 있다.
 	     console.log(e.target)
-		console.log(e.target.result)
+		console.log(e.target.result)//result : 파일에 대한 정보 위치
            $('#preview').attr('src', e.target.result);
           }
       }

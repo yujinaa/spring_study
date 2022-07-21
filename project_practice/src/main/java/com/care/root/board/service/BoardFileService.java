@@ -1,5 +1,7 @@
 package com.care.root.board.service;
 
-public interface BoardFileService {
+import javax.servlet.http.HttpServletRequest;
 
+public interface BoardFileService {
+	public String getMessage(int num, HttpServletRequest request);
 }
