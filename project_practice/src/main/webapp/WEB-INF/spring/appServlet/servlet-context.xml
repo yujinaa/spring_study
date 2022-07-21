@@ -50,6 +50,7 @@
 		<interceptor>
 			<!-- <mapping path="/index"/> index 요청이 되면 -->
 			<mapping path="/member/memberInfo" /> <!-- memberInfo 요청하면 -->
+			<mapping path="/board/sriteForm" /> 
 			<beans:ref bean="memberInterceptor" /> <!-- memberInterceptor 동작시켜라 -->
 		</interceptor>
 
