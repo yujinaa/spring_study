@@ -12,13 +12,15 @@ public class BoardDTO {
 	private String imageFileName;
 	private String id;
 	
-	public void setSaveDate(String saveDate) {
-		this.saveDate = saveDate;
-	}
-//	public void setSaveDate(Timestamp saveDate) {
-//		SimpleDateFormat fo = new SimpleDateFormat("YYYY-MM-DD HH:mm:ss");
-//		this.saveDate = fo.format(saveDate);
+//	public void setSaveDate(String saveDate) {
+//		this.saveDate = saveDate;
 //	}
+	
+	//글작성 후 등록하면 시간이 00:49:09.0 이런식인데 뒤에 0없애는 코드
+	public void setSaveDate(Timestamp saveDate) {
+		SimpleDateFormat fo = new SimpleDateFormat("YYYY-MM-DD HH:mm:ss");
+		this.saveDate = fo.format(saveDate);
+	}
 	
 	public int getWriteNo() {
 		return writeNo;
