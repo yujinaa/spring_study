@@ -26,5 +26,9 @@
 	<select id="contentView" resultMap="board">
 		select * from mvc_board where write_no = #{writeNo} <!-- 한명에 대한 정보 가져오기 -->
 	</select>
+	
+	<update id="upHit">
+		update mvc_board set hit = hit+1 where write_no=#{writeNo}
+	</update>
 
 </mapper>

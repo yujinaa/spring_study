@@ -50,5 +50,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 	public void contentView(int writeNo, Model model) {
 		model.addAttribute("personalData", mapper.contentView(writeNo));
+		upHit(writeNo);
+	}
+	private void upHit(int writeNo) {//내부에서 쓱기 때문에 오버라이딩 할 필요없다
+		mapper.upHit(writeNo);
 	}
 }

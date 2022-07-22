@@ -8,5 +8,6 @@ public interface BoardMapper {
 	public List<BoardDTO> selectAllBoardList(); //게시판에 대한 모든 데이터 요청
 	public int writeSave(BoardDTO dto);
 	public BoardDTO contentView(int writeNo);
+	public void upHit(int writeNo);
 
 }

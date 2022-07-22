@@ -35,10 +35,10 @@
 					<b>이미지가 없습니다</b>
 			</c:if> 
 				<c:if test="${ personalData.imageFileName != 'nan' }">
-					<a href="${contextPath}/board/download?imageFileName=${personalData.imageFileName}">
 					<img width="200px" height="100px"
 						src="${contextPath}/board/download?imageFileName=${personalData.imageFileName}">
-					</a>
+					<a href="${contextPath}/board/download?imageFileName=${personalData.imageFileName}">
+						${personalData.imageFileName} </a>
 				</c:if></td>
 		</tr>
 		<tr>
