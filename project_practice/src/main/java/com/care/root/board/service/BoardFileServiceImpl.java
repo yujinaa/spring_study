@@ -15,7 +15,7 @@ public class BoardFileServiceImpl implements BoardFileService{
 		SimpleDateFormat simpl = new SimpleDateFormat("yyyyMMddHHmmss-");
 		Calendar calendar = Calendar.getInstance();
 		String sysFileName = 
-			simpl.format(calendar.getTime()) + file.getOriginalFilename();
+				simpl.format(calendar.getTime()) + file.getOriginalFilename();
 		File saveFile = new File(IMAGE_REPO+"/"+sysFileName);
 		try {
 			file.transferTo(saveFile);//해당 위치에 파일 저장
@@ -23,8 +23,8 @@ public class BoardFileServiceImpl implements BoardFileService{
 			e.printStackTrace();
 		}
 		return sysFileName;
-}
-	
+	}
+
 	public String getMessage(int num, HttpServletRequest request) {
 		String message = null;
 		if(num == 1) {
@@ -37,5 +37,18 @@ public class BoardFileServiceImpl implements BoardFileService{
 					"/board/writeForm'</script>";
 		}
 		return message;
+	}
+	public void deleteImage(String originFileName) {
+		File deleteFile = new File(IMAGE_REPO+"/"+originFileName);//파일받고 해당경로 얻어와서
+		deleteFile.delete();//그 경로의 파일 지워라
+	}
+	public String getMessage(HttpServletRequest request,String msg, String url) {
+		    String message = null;
+		    String path = request.getContextPath();
+		  
+			message = "<script>alert('"+msg+"');";
+			message += "location.href='"+path+ url +"'</script>";
+		  
+		    return message;
 	}
 }

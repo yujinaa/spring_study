@@ -2,6 +2,8 @@ package com.care.root.mybatis.board;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.care.root.board.dto.BoardDTO;
 
 public interface BoardMapper {
@@ -9,5 +11,6 @@ public interface BoardMapper {
 	public int writeSave(BoardDTO dto);
 	public BoardDTO contentView(int writeNo);
 	public void upHit(int writeNo);
+	public int delete(int writeNo);
 
 }

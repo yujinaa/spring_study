@@ -28,12 +28,12 @@ public class BoardServiceImpl implements BoardService{
 		dto.setTitle( mul.getParameter("title") );
 		dto.setContent( mul.getParameter("content") );
 		dto.setId(mul.getParameter("id")); 
-		
-//		HttpSession session = request.getSession();
-//		dto.setId((String)session.getAttribute(MemberSessionName.LOGIN));
+
+		//		HttpSession session = request.getSession();
+		//		dto.setId((String)session.getAttribute(MemberSessionName.LOGIN));
 
 		MultipartFile file = mul.getFile("image_file_name");
-//		BoardFileService bfs = new BoardFileServiceImpl();
+		//		BoardFileService bfs = new BoardFileServiceImpl();
 		if(file.getSize() != 0) {
 			//이미지 있을경우 처리
 			dto.setImageFileName(bfs.saveFile(file));
@@ -54,5 +54,17 @@ public class BoardServiceImpl implements BoardService{
 	}
 	private void upHit(int writeNo) {//내부에서 쓱기 때문에 오버라이딩 할 필요없다
 		mapper.upHit(writeNo);
+	}
+	public String boardDelete(int writeNo,String imageFileName, HttpServletRequest request) {
+
+		int result = mapper.delete(writeNo);//db지우겠다
+		String message=null;
+		if(result == 1) { 
+			bfs.deleteImage(imageFileName); 
+			message = bfs.getMessage(request, "삭제 성공", "/board/boardAllList" );
+		}else{
+			message = bfs.getMessage(request, "삭제 실패", "/board/contentView" );
+		}
+		return message;
 	}
 }

@@ -30,5 +30,9 @@
 	<update id="upHit">
 		update mvc_board set hit = hit+1 where write_no=#{writeNo}
 	</update>
+	
+	<delete id="delete">
+		delete from mvc_board where write_no = #{writeNo}
+	</delete>
 
 </mapper>

@@ -8,4 +8,6 @@ public interface BoardFileService {
 	public String getMessage(int num, HttpServletRequest request);
 	public static final String IMAGE_REPO = "C:/spring/image_repo";
 	public String saveFile(MultipartFile file);
+	public void deleteImage(String originFileName);
+	public String getMessage(HttpServletRequest request,String msg, String url);
 }
