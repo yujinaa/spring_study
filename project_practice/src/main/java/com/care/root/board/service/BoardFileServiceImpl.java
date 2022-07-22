@@ -43,12 +43,12 @@ public class BoardFileServiceImpl implements BoardFileService{
 		deleteFile.delete();//그 경로의 파일 지워라
 	}
 	public String getMessage(HttpServletRequest request,String msg, String url) {
-		    String message = null;
-		    String path = request.getContextPath();
-		  
-			message = "<script>alert('"+msg+"');";
-			message += "location.href='"+path+ url +"'</script>";
-		  
-		    return message;
+		String message = null;
+		String path = request.getContextPath();
+
+		message = "<script>alert('"+msg+"');";
+		message += "location.href='"+path+ url +"'</script>";
+
+		return message;
 	}
 }

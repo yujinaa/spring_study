@@ -46,8 +46,8 @@
 					test="${ loginUser == personalData.id }">
 					<input type="button" onclick="" value="수정하기">
 					<input type="button" value="삭제하기" 	onclick="location.href='${contextPath }/board/delete?writeNo=${personalData.writeNo }&imageFileName=${personalData.imageFileName}'">
-					<!-- writeNo=${personalData.writeNo:db에있는 데이터 삭제위한 것 -->
-					<!-- imageFileName=${personalData.imageFileName: 해당 저장소에서 이미지 삭제하기위한 것 -->
+					<!-- writeNo=${personalData.writeNo}:db에있는 데이터 삭제위한 것 -->
+					<!-- imageFileName=${personalData.imageFileName}: 해당 저장소에서 이미지 삭제하기위한 것 -->
 				</c:if> <input type="button" onclick="" value="답글달기"> <input
 				type="button" onclick="" value="리스트로 돌아가기"></td>
 		</tr>
