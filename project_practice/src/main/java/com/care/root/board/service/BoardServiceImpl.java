@@ -17,6 +17,7 @@ import com.care.root.mybatis.board.BoardMapper;
 public class BoardServiceImpl implements BoardService{
 
 	@Autowired BoardMapper mapper;
+	@Autowired BoardFileService bfs;
 	public void selectAllBoardList(Model model) {
 		model.addAttribute("boardList", mapper.selectAllBoardList());
 
@@ -32,7 +33,7 @@ public class BoardServiceImpl implements BoardService{
 //		dto.setId((String)session.getAttribute(MemberSessionName.LOGIN));
 
 		MultipartFile file = mul.getFile("image_file_name");
-		BoardFileService bfs = new BoardFileServiceImpl();
+//		BoardFileService bfs = new BoardFileServiceImpl();
 		if(file.getSize() != 0) {
 			//이미지 있을경우 처리
 			dto.setImageFileName(bfs.saveFile(file));
