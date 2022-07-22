@@ -29,7 +29,9 @@
 				<tr>
 					<td>${dto.writeNo }</td>
 					<td>${dto.id }</td>
-					<td><a href="#">${dto.title }</a></td>
+					<td>
+				<a href="${contextPath}/board/contentView?writeNo=${dto.writeNo}">${dto.title}</a>
+					</td>
 					<td>${dto.saveDate }</td>
 					<td>${dto.hit }</td>
 					<td>${dto.imageFileName }</td>

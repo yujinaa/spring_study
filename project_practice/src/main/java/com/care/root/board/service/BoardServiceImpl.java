@@ -48,4 +48,7 @@ public class BoardServiceImpl implements BoardService{
 		}
 		return bfs.getMessage(result, request);//메시지가 있을 경우 0 또는 1을 넘긴다
 	}
+	public void contentView(int writeNo, Model model) {
+		model.addAttribute("personalData", mapper.contentView(writeNo));
+	}
 }

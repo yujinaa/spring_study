@@ -22,5 +22,9 @@
 		insert into mvc_board(write_no,id,title,content,image_file_name)
 		values(mvc_board_seq.nextval,#{id},#{title},#{content},#{imageFileName})
 	</insert>
+	
+	<select id="contentView" resultMap="board">
+		select * from mvc_board where write_no = #{writeNo} <!-- 한명에 대한 정보 가져오기 -->
+	</select>
 
 </mapper>

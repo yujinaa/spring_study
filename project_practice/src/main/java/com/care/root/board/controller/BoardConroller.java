@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.care.root.board.service.BoardService;
@@ -40,5 +41,10 @@ public class BoardConroller {
 		response.setContentType("text/html; charset=utf-8"); //사용자에게 메시지 전달하기 위해 response가 존재
 		out = response.getWriter();
 		out.println(message);
+	}
+	@GetMapping("contentView")
+	public String contentView(@RequestParam int writeNo, Model model) {
+		bs.contentView(writeNo, model);
+		return "board/contentView";
 	}
 }
