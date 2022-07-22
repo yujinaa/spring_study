@@ -26,13 +26,16 @@ public class BoardServiceImpl implements BoardService{
 		BoardDTO dto = new BoardDTO();
 		dto.setTitle( mul.getParameter("title") );
 		dto.setContent( mul.getParameter("content") );
-		HttpSession session = request.getSession();
-		dto.setId((String)session.getAttribute(MemberSessionName.LOGIN));
+		dto.setId(mul.getParameter("id")); 
+		
+//		HttpSession session = request.getSession();
+//		dto.setId((String)session.getAttribute(MemberSessionName.LOGIN));
 
 		MultipartFile file = mul.getFile("image_file_name");
 		BoardFileService bfs = new BoardFileServiceImpl();
 		if(file.getSize() != 0) {
 			//이미지 있을경우 처리
+			dto.setImageFileName(bfs.saveFile(file));
 		}else {
 			dto.setImageFileName("nan");
 		}
