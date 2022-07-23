@@ -34,6 +34,29 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
+function replyData(){
+    $.ajax({
+       url:"replyData/"+${personalData.writeNo}, type:"GET", 
+       dataType:"json",
+       success: function(rep){
+          let html = ""
+          rep.forEach(function(data){
+             let date = new Date(data.write_date)
+             let writeDate = date.getFullYear()+"년"+(date.getMonth()+1)+"월"
+             writeDate += date.getDate()+"일"+date.getHours()+"시"
+             writeDate += date.getMinutes()+"분"+date.getSeconds()+"초"
+             html += "<div align='left'><b>아이디 : </b>"+data.id+"님 / ";
+             html += "<b>작성일</b> : "+writeDate+"<br>"
+             html += "<b>제목</b> : "+data.title+"<br>"
+             html += "<b>내용</b> : "+data.content+"<hr></div>"
+          })
+          $("#reply").html(html)
+       },error:function(){
+          alert('데이터를 가져올 수 없습니다')
+       }
+    })
+ }
+
 	function slideClick() {
 		$("#first").slideDown('slow');
 		$("#modal_wrap").show();
