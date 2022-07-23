@@ -5,8 +5,90 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+#modal_wrap {
+	display: none;
+	position: fixed;
+	z-index: 9;
+	margin: 0 auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#first {
+	position: fixed;
+	z-index: 10;
+	margin: 0 auto;
+	top: 30px;
+	left: 0;
+	right: 0;
+	display: none;
+	background-color: rgba(212, 244, 250, 0.9);
+	height: 350px;
+	width: 300px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	function slideClick() {
+		$("#first").slideDown('slow');
+		$("#modal_wrap").show();
+	}
+	function slide_hide() {
+		$("#first").slideUp('fast');
+		$("#modal_wrap").hide();
+	}
+	function rep() {
+		let form = {};
+		let arr = $("#frm").serializeArray()
+		for (i = 0; i < arr.length; i++) {
+			form[arr[i].name] = arr[i].value;
+		}
+		$.ajax({
+			url : "addReply",
+			type : "POST",
+			dataType : "json",
+			data : JSON.stringify(form),
+			contentType : "application/json;charset=utf-8",
+			success : function(list) {
+				alert("성공적으로 답글이 달렸습니다.");
+				slide_hide();
+			},
+			error : function() {
+				alert("문제 발생!")
+			}
+		});
+	}
+</script>
+</head>
 </head>
 <body>
+	<div id="modal_wrap">
+		<!-- 모달 추가 -->
+		<div id="first">
+			<div style="width: 250px; margin: 0 auto; padding-top: 20px;">
+				<form id="frm">
+					<input type="hidden" name="write_no"
+						value="${personalData.writeNo}"> <b>답글 작성 페이지</b>
+					<hr>
+					<b>작성자 : ${loginUser}</b>
+					<hr>
+					<b>제목</b><br> <input type="text" id="title" size="30"
+						name="title">
+					<hr>
+					<b>내용</b><br>
+					<textarea name="content" id="content" rows="5" cols="30"></textarea>
+					<hr>
+					<button type="button" onclick="rep()">답글</button>
+					<button type="button" onclick="slide_hide()">취소</button>
+				</form>
+			</div>
+		</div>
+	</div>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp" />
@@ -29,23 +111,25 @@
 		<tr>
 			<th>내용</th>
 			<td>${personalData.content}</td>
-			<td colspan="2">
-			<c:if
+			<td colspan="2"><c:if
 					test="${ personalData.imageFileName == 'nan' }">
 					<b>이미지가 없습니다</b>
-			</c:if> 
-				<c:if test="${ personalData.imageFileName != 'nan' }">
+				</c:if> <c:if test="${ personalData.imageFileName != 'nan' }">
 					<img width="200px" height="100px"
 						src="${contextPath}/board/download?imageFileName=${personalData.imageFileName}">
-					<a href="${contextPath}/board/download?imageFileName=${personalData.imageFileName}">
+					<a
+						href="${contextPath}/board/download?imageFileName=${personalData.imageFileName}">
 						${personalData.imageFileName} </a>
 				</c:if></td>
 		</tr>
 		<tr>
 			<td colspan="4" align="center"><c:if
 					test="${ loginUser == personalData.id }">
-					<input type="button" onclick="location.href='${contextPath }/board/modify_form?writeNo=${personalData.writeNo }'" value="수정하기">
-					<input type="button" value="삭제하기" 	onclick="location.href='${contextPath }/board/delete?writeNo=${personalData.writeNo }&imageFileName=${personalData.imageFileName}'">
+					<input type="button"
+						onclick="location.href='${contextPath }/board/modify_form?writeNo=${personalData.writeNo }'"
+						value="수정하기">
+					<input type="button" value="삭제하기"
+						onclick="location.href='${contextPath }/board/delete?writeNo=${personalData.writeNo }&imageFileName=${personalData.imageFileName}'">
 					<!-- writeNo=${personalData.writeNo}:db에있는 데이터 삭제위한 것 -->
 					<!-- imageFileName=${personalData.imageFileName}: 해당 저장소에서 이미지 삭제하기위한 것 -->
 				</c:if> <input type="button" onclick="" value="답글달기"> <input
