@@ -67,4 +67,7 @@ public class BoardServiceImpl implements BoardService{
 		}
 		return message;
 	}
+	public void getData(int writeNo, Model model) {
+		model.addAttribute("personalData", mapper.contentView(writeNo));//db에 해당하는 데이터 넘기기
+	}
 }

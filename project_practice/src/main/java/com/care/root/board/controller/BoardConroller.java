@@ -53,25 +53,30 @@ public class BoardConroller {
 	}
 	@GetMapping("download")//사진 보이기 기능
 	public void download(@RequestParam("imageFileName") String imageFileName,
-		HttpServletResponse response) throws IOException {
-	    response.addHeader(
-		"Content-disposition","attachment;fileName="+imageFileName);
-	    File file = new File(BoardFileService.IMAGE_REPO+"/"+imageFileName);
-	    FileInputStream in = new FileInputStream(file);
-	    FileCopyUtils.copy(in, response.getOutputStream());
-	    in.close();
-}
+			HttpServletResponse response) throws IOException {
+		response.addHeader(
+				"Content-disposition","attachment;fileName="+imageFileName);
+		File file = new File(BoardFileService.IMAGE_REPO+"/"+imageFileName);
+		FileInputStream in = new FileInputStream(file);
+		FileCopyUtils.copy(in, response.getOutputStream());
+		in.close();
+	}
 	@GetMapping("delete")//삭제하기
 	public void boardDelete(@RequestParam("writeNo") int write_no,
-		@RequestParam("imageFileName") String imageFileName,
-		HttpServletResponse response, 
-		HttpServletRequest request) throws IOException {
-		
+			@RequestParam("imageFileName") String imageFileName,
+			HttpServletResponse response, 
+			HttpServletRequest request) throws IOException {
+
 		String message = bs.boardDelete(write_no,imageFileName,request);
-		
+
 		PrintWriter out=null;
 		response.setContentType("text/html; charset=utf-8");
 		out = response.getWriter();
 		out.println(message);
-}
+	}
+	@GetMapping("modify_form")
+	public String modify_form(@RequestParam int writeNo, Model model) {
+		bs.getData(writeNo, model);//getData로 연결해 번호와 model을 넘겨주고
+		return "board/modify_form";
+	}
 }
