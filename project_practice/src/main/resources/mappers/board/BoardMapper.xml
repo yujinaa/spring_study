@@ -15,24 +15,32 @@
 	</resultMap>
 
 	<select id="selectAllBoardList" resultMap="board">
-		select * from mvc_board
+		select * from
+		mvc_board
 	</select>
 
 	<insert id="writeSave">
-		insert into mvc_board(write_no,id,title,content,image_file_name)
+		insert into
+		mvc_board(write_no,id,title,content,image_file_name)
 		values(mvc_board_seq.nextval,#{id},#{title},#{content},#{imageFileName})
 	</insert>
-	
+
 	<select id="contentView" resultMap="board">
 		select * from mvc_board where write_no = #{writeNo} <!-- 한명에 대한 정보 가져오기 -->
 	</select>
-	
+
 	<update id="upHit">
-		update mvc_board set hit = hit+1 where write_no=#{writeNo}
+		update mvc_board set hit = hit+1 where
+		write_no=#{writeNo}
 	</update>
-	
+
 	<delete id="delete">
 		delete from mvc_board where write_no = #{writeNo}
 	</delete>
+
+	<update id="modify">
+		update mvc_board set title=#{title}, content=#{content},
+		image_file_name=#{imageFileName} where write_no=#{writeNo}
+	</update>
 
 </mapper>

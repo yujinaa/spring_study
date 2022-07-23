@@ -74,9 +74,19 @@ public class BoardConroller {
 		out = response.getWriter();
 		out.println(message);
 	}
-	@GetMapping("modify_form")
+	@GetMapping("modify_form")//수정하기 폼
 	public String modify_form(@RequestParam int writeNo, Model model) {
 		bs.getData(writeNo, model);//getData로 연결해 번호와 model을 넘겨주고
 		return "board/modify_form";
 	}
+	@PostMapping("modify")//수정하기
+	public void modify(MultipartHttpServletRequest mul,
+	         HttpServletResponse response,
+	         HttpServletRequest request) throws IOException {
+	   String message = bs.modify(mul, request);
+	   PrintWriter out=null;
+	   response.setContentType("text/html; charset=utf-8");
+	   out = response.getWriter();
+	   out.println(message);
+}
 }
