@@ -89,7 +89,7 @@ function replyData(){
 	}
 </script>
 </head>
-<body>
+<body onload="replyData()"><!-- 답글달기가 처음부터 보이게 -->
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<div id="modal_wrap">
 		<!-- 모달 추가 -->
@@ -117,6 +117,7 @@ function replyData(){
 	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 	<c:import url="../default/header.jsp" />
+	<div align="center">
 	<table border="1" align="center">
 		<caption>
 			<font size="5"><b>개인 정보</b></font>
@@ -155,6 +156,7 @@ function replyData(){
 				<div id = "reply"></div>
 				</td>
 		</tr>
+		</div>
 	</table>
 	<c:import url="../default/footer.jsp" />
 

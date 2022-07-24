@@ -10,7 +10,7 @@
 </head>
 <body>
 	<c:import url="../default/header.jsp" />
-	<div class="wrap">
+	<div class="wrap" align="center">
 		<table border="1">
 			<tr>
 				<th>번호</th>
