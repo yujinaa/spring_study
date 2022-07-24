@@ -78,6 +78,8 @@ function replyData(){
 			data : JSON.stringify(form),
 			contentType : "application/json;charset=utf-8",
 			success : function(list) {
+				$("#title").val("")
+				$("#content").val("")
 				alert("성공적으로 답글이 달렸습니다.");
 				slide_hide();
 				replyData(); //답글가져와서 보이기
@@ -97,9 +99,10 @@ function replyData(){
 			<div style="width: 250px; margin: 0 auto; padding-top: 20px;">
 				<form id="frm">
 					<input type="hidden" name="write_no"
-						value="${personalData.writeNo}"> <b>답글 작성 페이지</b>
+						value="${personalData.writeNo}"> <b>답글 작성</b>
+					   
 					<hr>
-					<b>작성자 : ${loginUser}</b>
+					<b>작성자</b> : ${loginUser}
 					<hr>
 					<b>제목</b><br> <input type="text" id="title" size="30"
 						name="title">
