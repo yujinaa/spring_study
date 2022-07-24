@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.care.root.board.dto.BoardDTO;
@@ -17,5 +18,6 @@ public interface BoardMapper {
 	public int delete(int writeNo);
 	public int modify(BoardDTO dto);
 	public int addReply(BoardRepDTO dto);
-
+	public List<BoardRepDTO> getRepList(int write_group);
 }
+

@@ -50,5 +50,19 @@
 		values(#{id},#{title},#{content},#{write_group})
 	</insert>
 
+	<resultMap id="reply" type="com.care.root.board.dto.BoardRepDTO">
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="write_group" column="write_group" />
+		<result property="write_date" column="write_date" />
+	</resultMap>
+	
+	<select id="getRepList" resultMap="reply">
+	select * from reply where write_group=#{write_group} order by write_date desc
+	</select>
+	
+
+
 
 </mapper>

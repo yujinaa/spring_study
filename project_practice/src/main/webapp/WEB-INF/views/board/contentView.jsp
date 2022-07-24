@@ -80,6 +80,7 @@ function replyData(){
 			success : function(list) {
 				alert("성공적으로 답글이 달렸습니다.");
 				slide_hide();
+				replyData(); //답글가져와서 보이기
 			},
 			error : function() {
 				alert("문제 발생!")
@@ -149,7 +150,10 @@ function replyData(){
 					<input type="button" value="삭제하기"
 						onclick="location.href='${contextPath}/board/delete?writeNo=${personalData.writeNo}&imageFileName=${personalData.imageFileName}'">
 				</c:if> <input type="button" onclick="slideClick()" value="답글달기"> <input
-				type="button" onclick="" value="리스트로 돌아가기"></td>
+				type="button" onclick="" value="리스트로 돌아가기">
+				<hr>
+				<div id = "reply"></div>
+				</td>
 		</tr>
 	</table>
 	<c:import url="../default/footer.jsp" />

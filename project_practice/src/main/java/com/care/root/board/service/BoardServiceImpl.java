@@ -1,11 +1,15 @@
 package com.care.root.board.service;
 
+
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -107,6 +111,9 @@ public class BoardServiceImpl implements BoardService{
 		}
 		return msg;
 	}
+	public List<BoardRepDTO> getRepList(int write_group){
+		return mapper.getRepList(write_group);
+}
 
 
 }
