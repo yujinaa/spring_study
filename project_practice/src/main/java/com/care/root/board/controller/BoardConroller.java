@@ -27,8 +27,9 @@ public class BoardConroller {
 	@Autowired BoardService bs;
 
 	@GetMapping("boardAllList")
-	public String selectAllBoardList(Model model) {
-		bs.selectAllBoardList(model);
+	public String selectAllBoardList(Model model,
+									@RequestParam(required = false, defaultValue = "1")int num) {//값이 없으면 디폴드값으로 1넘기겠다,있다면 num으로 처리
+		bs.selectAllBoardList(model,num);
 		return "board/boardAllList";
 	}
 	@GetMapping("writeForm")

@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.care.root.board.dto.BoardRepDTO;
 
 public interface BoardService {
-	public void selectAllBoardList(Model model);
+	public void selectAllBoardList(Model model, int num);
 	public String writeSave(MultipartHttpServletRequest mul,HttpServletRequest request);
 	public void contentView(int writeNo, Model model);
 	public String boardDelete(int writeNo,String imageFileName, HttpServletRequest request);

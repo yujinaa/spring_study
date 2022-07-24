@@ -29,8 +29,8 @@
 				<tr>
 					<td>${dto.writeNo }</td>
 					<td>${dto.id }</td>
-					<td>
-				<a href="${contextPath}/board/contentView?writeNo=${dto.writeNo}">${dto.title}</a>
+					<td><a
+						href="${contextPath}/board/contentView?writeNo=${dto.writeNo}">${dto.title}</a>
 					</td>
 					<td>${dto.saveDate }</td>
 					<td>${dto.hit }</td>
@@ -38,7 +38,12 @@
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colspan="6"><a href="${contextPath }/board/writeForm">글작성</a>
+				<td colspan="6">
+					<div align="left">
+						<c:forEach var="num" begin="1" end="${repeat }">
+							<a href="boardAllList?num=${num }">[${num }]</a>
+						</c:forEach>
+					</div> <a href="${contextPath }/board/writeForm">글작성</a>
 				</td>
 			</tr>
 		</table>
