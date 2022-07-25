@@ -3,5 +3,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.root.mapper.TestMapper">
+	<insert id="userInsert">
+		insert into user_info values(#{num})
+	</insert>
 
+	<insert id="systemInsert">
+		insert into system_info values(#{num})
+	</insert>
+
+	<resultMap type="com.care.root.dto.UserDTO" id="user">
+		<result property="userNum" column="user_num" />
+	</resultMap>
+	
+	<resultMap type="com.care.root.dto.SystemDTO" id="system">
+		<result property="systemNum" column="system_num" />
+	</resultMap>
+	
+	<select id="userDbResult" resultMap="user">
+		select * from user_info
+	</select>
+	
+	<select id="systemDbResult" resultMap="system">
+		select * from system_info
+	</select>
 </mapper>
+
