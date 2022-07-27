@@ -32,5 +32,5 @@ public class TestController {
 	@GetMapping("testChart")
 	public String testchart() {
 		return "testChart";
-}
+	}
 }
