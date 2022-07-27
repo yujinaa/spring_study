@@ -29,4 +29,8 @@ public class TestController {
 		ts.dbResult(model);
 		return "db_result";
 	}
+	@GetMapping("testChart")
+	public String testchart() {
+		return "testChart";
+}
 }
