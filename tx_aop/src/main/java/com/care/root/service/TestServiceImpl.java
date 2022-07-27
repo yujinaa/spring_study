@@ -19,7 +19,7 @@ public class TestServiceImpl {
 			result[0] = mapper.userInsert(num);
 			result[1] = mapper.systemInsert(num);
 		} catch (Exception e) {
-			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//시스템에서 문제생기면 데이터를 원래대로 롤백하겠다
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();//db저장시 문제생기면 데이터를 원래대로 롤백하겠다
 			e.printStackTrace();
 		}
 		model.addAttribute("result",result);

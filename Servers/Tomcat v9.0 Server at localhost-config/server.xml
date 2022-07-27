@@ -156,13 +156,14 @@
 <!-- <Context docBase="di" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:di"/>   
       <Context docBase="mvc" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:mvc"/>
       <Context docBase="mvc_02" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:mvc_02"/>
-      <Context docBase="mvc_practice" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:mvc_practice"/>
       <Context docBase="cookie_session" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:cookie_session"/>
       <Context docBase="mybatis_junit" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:mybatis_junit"/>
-      <Context docBase="project_practice" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:project_practice"/>
+      <Context docBase="mvc_practice" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:mvc_practice"/></Host>
       <Context docBase="file_email" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:file_email"/>
+      <Context docBase="ajax" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:ajax"/>
+      <Context docBase="project_practice" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:project_practice"/>
 -->
-      <Context docBase="ajax" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:ajax"/></Host>
+      <Context docBase="tx_aop" path="/root" reloadable="true" source="org.eclipse.jst.jee.server:tx_aop"/></Host>
     </Engine>
   </Service>
 </Server>
