@@ -21,6 +21,7 @@ public class TestController {
 
 	@GetMapping("buy_form")
 	public String buy_form() {
+		System.out.println("buy_form 컨트롤러 실행");
 		return "buy_form";
 	}
 	@GetMapping("db_result")//db확인하기 코드
