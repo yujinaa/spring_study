@@ -6,8 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript"
-	src="https://www.gstatic.com/charts/loader.js"></script>
+
+<!-- 구글 오픈 api이용해서 차트사용 -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
 <script type="text/javascript">
    google.charts.load('current', {'packages' : [ 'bar' ]});
    google.charts.setOnLoadCallback(drawChart);
